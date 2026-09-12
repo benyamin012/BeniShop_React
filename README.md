@@ -180,18 +180,19 @@ Then open the local development URL shown in your terminal.
 
 > Screenshots of the application will be added here.
 
-<!--
-Add your screenshots here:
+## 📸 Screenshots
 
-![Home Page](./screenshots/home.png)
+| Home | Products |
+|------|----------|
+| ![Home](./ScreenShot/HomePage.png) | ![Products](./ScreenShot/ProductDetils.png) |
 
-![Product Details](./screenshots/product-details.png)
+|  Shopping Cart |
+|-----------------|
+| ![Details](./ScreenShot/ShoppingCart.png) 
 
-![Shopping Cart](./screenshots/cart.png)
-
-![Checkout](./screenshots/checkout.png)
--->
-
+| Logint |
+|-------|
+| ![Login](./ScreenShot/Login.png) 
 ---
 
 ## 🛣️ Application Flow
