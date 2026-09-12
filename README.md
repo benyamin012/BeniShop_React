@@ -184,7 +184,7 @@ Then open the local development URL shown in your terminal.
 
 | Home | Products |
 |------|----------|
-| ![Home](./ScreenShot/HomePage.png) | ![Products](./ScreenShot/ProductDetils.png) |
+| ![Home](./src/ScreenShot/HomePage.png) | ![Products](./ScreenShot/ProductDetils.png) |
 
 |  Shopping Cart |
 |-----------------|
