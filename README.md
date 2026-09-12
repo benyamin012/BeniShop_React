@@ -184,15 +184,15 @@ Then open the local development URL shown in your terminal.
 
 | Home | Products |
 |------|----------|
-| ![Home](./src/ScreenShot/HomePage.png) | ![Products](./ScreenShot/ProductDetils.png) |
+| ![Home](./src/ScreenShot/HomePage.png) | ![Products](./src/ScreenShot/ProductDetils.png) |
 
 |  Shopping Cart |
 |-----------------|
-| ![Details](./ScreenShot/ShoppingCart.png) 
+| ![Details](./src/ScreenShot/ShoppingCart.png) 
 
 | Logint |
 |-------|
-| ![Login](./ScreenShot/Login.png) 
+| ![Login](./src/ScreenShot/Login.png) 
 ---
 
 ## 🛣️ Application Flow
