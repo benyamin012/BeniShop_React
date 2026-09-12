@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link href="./src/output.css" rel="stylesheet">
+
+  <title>Dashboard</title>
+</head>
+
+<body class="bg-[#f8fafc] font-[Vazirmatn] text-[#2d3339]">
+
+  <!-- ================= HEADER ================= -->
+  <header>
+
+    <!-- Top Header -->
+    <div
+      class="basic-head-menu w-full min-h-22.5 bg-cover bg-center flex items-center justify-between px-6 sm:px-10 lg:px-16">
+
+      <!-- Profile -->
+      <div class="flex items-center gap-3">
+
+        <a href="#">
+          <img src="img/dashboared.png" alt="profile" class="w-11 h-11 rounded-full object-cover">
+        </a>
+
+        <h3 id="profile" class="text-white text-sm border-r border-white/40 pr-3">
+          User Name
+        </h3>
+
+      </div>
+
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:block">
+
+        <ul class="flex items-center gap-8 text-white">
+
+          <li>
+            <a href="#" class="hover:text-blue-200 transition">
+              Home
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="hover:text-blue-200 transition">
+              About Us
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="hover:text-blue-200 transition">
+              Call
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="hover:text-blue-200 transition">
+              Product
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+
+
+    <!-- ================= MAIN ================= -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+      <!--
+        Dashboard Layout
+
+        Desktop:
+        Sidebar | Content
+
+        Mobile:
+        Sidebar
+        Content
+      -->
+      <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-6 items-start">
+
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="bg-white rounded-lg border border-[#ecf0f4] shadow-[0_0_7px_0_#eaeff4] p-5 lg:min-h-125">
+
+          <ul class="space-y-2">
+
+            <li>
+              <a href="#" class="block rounded-md px-4 py-3 text-sm transition hover:bg-blue-50 hover:text-blue-600">
+                داشبورد
+              </a>
+            </li>
+
+            <li>
+              <a href="#" id="openmodal"
+                class="block rounded-md px-4 py-3 text-sm transition hover:bg-blue-50 hover:text-blue-600">
+                ویرایش اطلاعات
+              </a>
+            </li>
+
+            <li>
+              <a href="#" id="logout" onclick="logoutus()"
+                class="block rounded-md px-4 py-3 text-sm transition hover:bg-red-50 hover:text-red-500">
+                خروج
+              </a>
+            </li>
+
+          </ul>
+
+        </aside>
+
+
+        <!-- ================= CONTENT ================= -->
+        <section class="space-y-6">
+
+
+          <!-- Special Membership -->
+          <div class="bg-white rounded-lg border border-[#ecf0f4] shadow-[0_0_7px_0_#eaeff4] overflow-hidden">
+
+            <header class="border-b border-[#eff2f5] px-5 py-4">
+              <h2 class="font-bold text-base">
+                اکانت اعضای ویژه سایت
+              </h2>
+            </header>
+
+            <div class="p-5">
+
+              <div class="text-sm sm:text-base text-[#8a6d3b] bg-[#fcf8e3] border border-[#faebcc] rounded-md p-4 mb-5">
+                درحال حاضر شما عضو ویژه سایت نمی باشید !
+                درصورت تمایل برای استفاده از امکانات اعضای ویژه
+                باید اشتراک خریداری نمایید.
+              </div>
+
+              <a href="#"
+                class="inline-flex items-center justify-center bg-[#6fc341] hover:bg-[#5eaf35] text-white text-sm px-5 py-2.5 rounded-md transition">
+                همین الان عضو ویژه شو
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <!-- User Information -->
+          <div class="bg-white rounded-lg border border-[#ecf0f4] shadow-[0_0_7px_0_#eaeff4] overflow-hidden">
+
+            <header class="border-b border-[#eff2f5] px-5 py-4">
+              <h2 class="font-bold text-base">
+                اطلاعات کاربری
+              </h2>
+            </header>
+
+            <div class="p-5 space-y-4">
+
+              <h6 id="show_username" class="text-sm sm:text-base text-[#686e71]">
+                نام یا نام کاربری :
+              </h6>
+
+              <h6 id="show_userpass" class="text-sm sm:text-base text-[#686e71]">
+                رمز ورود :
+              </h6>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </main>
+
+  </header>
+
+
+  <!-- ================= MODAL ================= -->
+
+  <div dir="rtl" id="myModal" class="hidden fixed inset-0 z-50 bg-black/40 p-4 items-center justify-center">
+
+    <div class="w-full max-w-md bg-[#d9ded1] rounded-2xl shadow-xl overflow-hidden animate-[modalTop_.4s_ease]">
+
+      <!-- Modal Header -->
+      <div class="bg-[#5cb85c] text-white px-5 py-4 flex items-center justify-between">
+
+        <h2 class="font-bold text-lg">
+          ویرایش اطلاعات
+        </h2>
+
+        <span class="close cursor-pointer text-3xl leading-none">
+          &times;
+        </span>
+
+      </div>
+
+
+      <!-- Modal Body -->
+      <div class="p-6 flex flex-col gap-4">
+
+        <input id="usname"
+          class="usename w-full h-12 rounded-md border border-gray-300 px-4 outline-none focus:border-blue-500"
+          type="text" placeholder="نام">
+
+        <input id="uspass"
+          class="userpas w-full h-12 rounded-md border border-gray-300 px-4 outline-none focus:border-blue-500"
+          type="password" placeholder="رمز">
+
+      </div>
+
+
+      <!-- Modal Footer -->
+      <div class="bg-[#5cb85c] px-5 py-4 flex items-center justify-between">
+
+        <h3 class="text-white">
+          :)
+        </h3>
+
+        <button class="btn bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full cursor-pointer transition"
+          id="btn" type="button">
+          ورود
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    const logInUserId =
+      JSON.parse(localStorage.getItem("loginUser"));
+
+    const loginUserpass =
+      JSON.parse(localStorage.getItem("loginUserpass"));
+
+
+    const user_name = logInUserId;
+    const user_pass = loginUserpass;
+
+
+    console.log(user_name);
+
+
+    // Show user information
+
+    document.getElementById("profile").innerHTML =
+      user_name;
+
+    document.getElementById("show_username").innerHTML =
+      `نام یا نام کاربری : ${user_name}`;
+
+    document.getElementById("show_userpass").innerHTML =
+      `رمز : ${user_pass}`;
+
+
+    // Reset information
+
+    function reset() {
+
+      document.getElementById("show_username").innerHTML =
+        "نام یا نام کاربری :";
+
+      document.getElementById("show_userpass").innerHTML =
+        "رمز :";
+
+    }
+
+
+    // Logout
+
+    function logoutus() {
+
+      localStorage.removeItem("loginUser");
+      localStorage.removeItem("loginUserpass");
+
+      reset();
+
+      window.location.href = "index.html";
+
+    }
+
+
+    // ================= MODAL =================
+
+    const openmodal =
+      document.getElementById("openmodal");
+
+    const modal =
+      document.getElementById("myModal");
+
+    const closemodal =
+      document.querySelector(".close");
+
+
+    openmodal.onclick = function (event) {
+
+      event.preventDefault();
+
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+
+    };
+
+
+    closemodal.onclick = function () {
+
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+
+    };
+
+
+    // Close modal by clicking outside
+
+    modal.onclick = function (event) {
+
+      if (event.target === modal) {
+
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+
+      }
+
+    };
+
+
+    // ================= CHANGE INFORMATION =================
+
+    const changeusname =
+      document.getElementById("usname");
+
+    const changeuspas =
+      document.getElementById("uspass");
+
+    const changbtn =
+      document.getElementById("btn");
+
+
+    changbtn.onclick = function () {
+
+      const changeusnamevalue =
+        changeusname.value.trim();
+
+      const changeuspasvalue =
+        changeuspas.value.trim();
+
+
+      if (!changeusnamevalue || !changeuspasvalue) {
+
+        alert(
+          "برای تغییر نام کاربری و رمز عبور باید هر دو فیلد را پر کنید."
+        );
+
+        return;
+
+      }
+
+
+      // Update UI
+
+      document.getElementById("profile").innerHTML =
+        `نام کاربری : ${changeusnamevalue}`;
+
+      document.getElementById("show_username").innerHTML =
+        `نام یا نام کاربری : ${changeusnamevalue}`;
+
+      document.getElementById("show_userpass").innerHTML =
+        `رمز : ${changeuspasvalue}`;
+
+
+      // Update localStorage
+
+      localStorage.setItem(
+        "loginUser",
+        JSON.stringify(changeusnamevalue)
+      );
+
+      localStorage.setItem(
+        "loginUserpass",
+        JSON.stringify(changeuspasvalue)
+      );
+
+
+      alert("اطلاعات با موفقیت تغییر کرد.");
+
+
+      // Close modal
+
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+
+
+      // Clear inputs
+
+      changeusname.value = "";
+      changeuspas.value = "";
+
+    };
+
+  </script>
+
+</body>
+
+</html>

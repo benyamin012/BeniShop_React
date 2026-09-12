@@ -1,0 +1,33 @@
+@import "tailwindcss";
+.mySwiper {
+  padding: 20px 35px 60px;
+}
+
+.mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev {
+  color: #2563eb;
+}
+
+.mySwiper .swiper-pagination {
+  bottom: 0 !important;
+}
+.swiper-button-next {
+  right: 0px;
+}
+
+.swiper-button-prev {
+  left: 0px;
+  
+}
+
+.mySwiper .swiper-pagination-bullet {
+  width: 10px !important;
+  height: 10px !important;
+}
+
+.mySwiper .swiper-pagination-bullet-active {
+  background: #2563eb !important;
+}
+:root {
+    --swiper-navigation-size: 30px;
+}

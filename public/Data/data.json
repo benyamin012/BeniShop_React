@@ -1,0 +1,413 @@
+{
+  "shopName": "BeniShop",
+  "sellWhat": [
+    {
+      "sellWhatId": 1,
+      "Name": "Clothes",
+      "childern": [
+        {
+          "id": 1,
+          "parentId": 0,
+          "enName": "Clothes",
+          "faName": "پوشاک"
+        },
+        {
+          "id": 2,
+          "parentId": 1,
+          "enName": "Women",
+          "faName": "زنانه"
+        },
+        {
+          "id": 3,
+          "parentId": 1,
+          "enName": "Men",
+          "faName": "مردانه"
+        }
+      ]
+    },
+    {
+      "sellWhatId": 4,
+      "Name": "Digital Products",
+      "childern": [
+        {
+          "id": 4,
+          "parentId": 0,
+          "enName": "Digital Products",
+          "faName": "کالای دیجیتال"
+        },
+        {
+          "id": 5,
+          "parentId": 4,
+          "enName": "Mobile",
+          "faName": "موبایل"
+        },
+        {
+          "id": 6,
+          "parentId": 4,
+          "enName": "LapTop",
+          "faName": "لپ تاپ"
+        },
+        {
+          "id": 7,
+          "parentId": 4,
+          "enName": "Screen",
+          "faName": "صفحه نمایش"
+        }
+      ]
+    },
+    {
+      "sellWhatId": 8,
+      "Name": "Camping Stuff",
+      "childern": [
+        {
+          "id": 8,
+          "parentId": 0,
+          "enName": "Camping Stuff",
+          "faName": "لوازم کمپینگ"
+        },
+        {
+          "id": 9,
+          "parentId": 8,
+          "enName": "surviveTools",
+          "faName": "لوازم بقا"
+        },
+        {
+          "id": 10,
+          "parentId": 8,
+          "enName": "Guns",
+          "faName": "اسلحه"
+        }
+      ]
+    }
+  ],
+
+  "product": [
+    {
+      "id": 1,
+      "name": "Lenovo Ideapad3 Slim",
+      "fname": "لپ تاپ لنوو اسلیم",
+      "img": "/img/lenovo ideapad3.png",
+      "CPU": "i5-8500",
+      "ram": "8g",
+      "color": "white",
+      "categoryId": 6,
+      "Amount": 120000000,
+      "stock": 3,
+      "Discount": "10%",
+      "Comments": 8,
+      "rating": 2
+    },
+    {
+      "id": 2,
+      "name": "ASUSE I9-12000",
+      "fname": "ایسوس",
+      "img": "/img/24d2d285d32a2d1bd0c10647d36ff86ea0accdb7_1758656274.webp",
+      "CPU": "i9-12000",
+      "ram": "16g",
+      "color": "back",
+      "categoryId": 6,
+      "Amount": 350000000,
+      "stock": 2,
+      "Discount": "10%",
+      "Comments": 10,
+      "rating": 3
+    },
+    {
+      "id": 3,
+      "name": "Macbook",
+      "fname": "مک بوک",
+      "img": "/img/dae5618f3f702e1954d1a4a2ee65e03f82db0f2b_1777811267.webp",
+      "CPU": "MGE94 2026 LLA-M5",
+      "ram": "48g",
+      "color": "white",
+      "categoryId": 6,
+      "Amount": 850000000,
+      "stock": 5,
+      "Discount": "10%",
+      "Comments": 50,
+      "rating": 5
+    },
+    {
+      "id": 4,
+      "name": "Poco m6 pro",
+      "fname": "پوکو ام 6 پرو",
+      "img": "/img/280x280.webp",
+      "ram": "12G",
+      "hard": "512g",
+      "color": "blue",
+      "categoryId": 5,
+      "Amount": 69000000,
+      "stock": 4,
+      "Discount": "10%",
+      "Comments": 4,
+      "rating": 4
+    },
+    {
+      "id": 5,
+      "name": "Iphone 17 pro",
+      "fname": "ایفون 17 پرو مکس",
+      "img": "/img/0a0fbbdbedcb7be1e4cfe35e2776ef07a26d17c4_1759666568-removebg-preview.png",
+      "ram": "8G",
+      "hard": "512-G",
+      "color": "orange",
+      "categoryId": 5,
+      "Amount": 450000000,
+      "stock": 6,
+      "Discount": "10%",
+      "Comments": 60,
+      "rating": 5
+    },
+    {
+      "id": 6,
+      "name": "z fold 7",
+      "fname": "زد فولد 8",
+      "img": "/img/bfe8d2db8c2081dcd4652224de941f311a6f83be_1753803917.webp",
+      "ram": "12G",
+      "hard": "256-G",
+      "color": "blue-black",
+      "categoryId": 5,
+      "Amount": 580000000,
+      "stock": 2,
+      "Discount": "10%",
+      "Comments": 2,
+      "rating": 5
+    },
+    {
+      "id": 7,
+      "name": "ASUS ProArt",
+      "fname": "مانیتور ایسوس پرو ارت",
+      "img": "/img/cee0e42692309ace382469382c7a755da79e36c8_1778501190.webp",
+      "Hz": "herts-240",
+      "USB port": 3,
+      "categoryId": 4,
+      "color": "black",
+      "Amount": 346000000,
+      "stock": 2,
+      "Discount": "10%",
+      "Comments": 6,
+      "rating": 5
+    },
+    {
+      "id": 8,
+      "name": "T-shirt",
+      "fname": "تیشرت",
+      "img": "/img/df2e7925aea091c4ba028e57d6e060257ef3c385_1779909030.webp",
+      "size": "xl",
+      "color": "red",
+      "categoryId": 2,
+      "Amount": 5000000,
+      "stock": 10,
+      "Discount": "10%",
+      "Comments": 9,
+      "rating": 1
+    },
+    {
+      "id": 9,
+      "name": "Blouse",
+      "img": "/img/43ec9fd1919918069e0ad2cdb149073e04542241_1782751756.webp",
+      "size": "lg",
+      "color": "blue",
+      "categoryId": 2,
+      "Amount": 3000000,
+      "stock": 15,
+      "Discount": "10%",
+      "Comments": 8,
+      "rating": 1
+    },
+    {
+      "id": 10,
+      "name": "Overcoat",
+      "fname": "پالتو",
+      "img": "/img/e5c583de2aa73ebbb5104158ced89535734bb666_1769716208.webp",
+      "size": "2xl",
+      "color": "gray",
+      "categoryId": 2,
+      "Amount": 3600000,
+      "stock": 6,
+      "Discount": "10%",
+      "Comments": 5,
+      "rating": 2
+    },
+    {
+      "id": 11,
+      "name": "Jacket",
+      "fname": "کاپشن",
+      "img": "/img/00c9f4aa8e8a3064008fe0a47e92530428b18ab9_1778597297.webp",
+      "size": "xl",
+      "color": "blue",
+      "categoryId": 2,
+      "Amount": 7000000,
+      "stock": 4,
+      "Discount": "10%",
+      "Comments": 45,
+      "rating": 3
+    },
+    {
+      "id": 12,
+      "name": "Shirt",
+      "fname": "پیراهن",
+      "img": "/img/2481f2aebc6998f6e2f083d1faf2a035fe699e78_1755038732.webp",
+      "size": "lg",
+      "color": "white",
+      "categoryId": 3,
+      "Amount": 2500000,
+      "stock": 8,
+      "Discount": "10%",
+      "Comments": 65,
+      "rating": 1
+    },
+    {
+      "id": 13,
+      "name": "T-shirt",
+      "fname": "تی شرت",
+      "img": "/img/08efe5a787d8055f2b80e6a2acb771ad1194a67b_1783342278.webp",
+      "size": "lg",
+      "color": "blue",
+      "categoryId": 3,
+      "Amount": 1500000,
+      "stock": 5,
+      "Discount": "10%",
+      "Comments": 5,
+      "rating": 1
+    },
+    {
+      "id": 14,
+      "name": "Jacket",
+      "fname": "کاپشن",
+      "img": "/img/00c9f4aa8e8a3064008fe0a47e92530428b18ab9_1778597297.webp",
+      "size": "3xl",
+      "color": "brown",
+      "categoryId": 2,
+      "Amount": 4500000,
+      "stock": 3,
+      "Discount": "10%",
+      "Comments": 7,
+      "rating": 2
+    },
+    {
+      "id": 15,
+      "name": "Belt",
+      "fname": "کمر بند",
+      "img": "/img/bbe3e6f04c8204c361bb42b19a2ee7c6c6c5f92d_1630755088.webp",
+      "categoryId": 2,
+      "color": "black",
+      "Amount": 800000,
+      "stock": 2,
+      "Discount": "10%",
+      "Comments": 9,
+      "rating": 3
+    },
+    {
+      "id": 16,
+      "name": "Tent",
+      "fname": "چادر",
+      "img": "/img/6941e83638820b2944503c232b0f48411e81231c_1754238823.webp",
+      "color": "lightBlue",
+      "Capacity": "8-people",
+      "categoryId": 9,
+      "Amount": 120000000,
+      "stock": 1,
+      "Discount": "10%",
+      "Comments": 2,
+      "rating": 4
+    },
+    {
+      "id": 17,
+      "name": "Tent",
+      "fname": "چادر",
+      "img": "/img/231240291dd574279fced74d20297f7dfe34c140_1769934909.webp",
+      "color": "black",
+      "Capacity": "12-people",
+      "categoryId": 9,
+      "Amount": 250000000,
+      "stock": 1,
+      "Discount": "10%",
+      "Comments": 1,
+      "rating": 5
+    },
+    {
+      "id": 18,
+      "name": "Axe",
+      "fname": "تبر",
+      "img": "/img/b660a73f86cf3b2eab662cc99f640be698ae17a7_1779653834.webp",
+      "brand": "stanly",
+      "categoryId": 9,
+      "Amount": 32000000,
+      "color": "white-black",
+      "stock": 5,
+      "Discount": "10%",
+      "Comments": 6,
+      "rating": 4
+    },
+    {
+      "id": 19,
+      "name": "griddle",
+      "fname": "ساج",
+      "img": "/img/0e403b27c1cd578d75771881dbbdd9755f74a13a_1753779916.webp",
+      "brand": "Naturehike",
+      "categoryId": 9,
+      "Amount": 7500000,
+      "color": "black",
+      "stock": 6,
+      "Discount": "10%",
+      "Comments": 0,
+      "rating": 2
+    },
+    {
+      "id": 20,
+      "name": "Gas stove",
+      "fname": "گاز",
+      "img": "/img/79c2db1f38dba32606be028c8cba7f7a17da1ad6_1772716778.webp",
+      "brand": "Naturehike",
+      "categoryId": 9,
+      "color": "black",
+      "Amount": 5000000,
+      "stock": 3,
+      "Discount": "10%",
+      "Comments": 6,
+      "rating": 3
+    },
+    {
+      "id": 21,
+      "name": "Sniper rifle",
+      "fname": "اسلحه تک تیر انداز",
+      "img": "/img/1-16.jpg",
+      "brand": "Kral Puncher Breaker PCP",
+      "categoryId": 10,
+      "color": "back",
+      "Amount": 50000000,
+      "stock": 1,
+      "Discount": "10%",
+      "Comments": 7,
+      "rating": 4
+    },
+    {
+      "id": 22,
+      "name": "Shotgun",
+      "fname": "شاتگان",
+      "img": "/img/8-9.jpg",
+      "brand": "FN SLP",
+      "color": "back",
+      "categoryId": 10,
+      "Amount": 36000000,
+      "stock": 2,
+      "Discount": "10%",
+      "Comments": 9,
+      "rating": 3
+    },
+    {
+      "id": 23,
+      "name": "kflsadjf;",
+      "fname": "شاتگان",
+      "img": "/img/8-9.jpg",
+      "brand": "FN SLP",
+      "color": "back",
+      "categoryId": 10,
+      "Amount": 36000000,
+      "stock": 2,
+      "Discount": "10%",
+      "Comments": 22,
+      "rating": 4
+    }
+  ]
+}

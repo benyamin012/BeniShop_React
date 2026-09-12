@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa-IR">
+<link rel="stylesheet" href="css/singup.css" />
+<link href="./src/output.css" rel="stylesheet">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>sing up</title>
+</head>
+
+<body style="direction: rtl">
+  <h1 class="lable">ساخت اکانت</h1>
+
+  <form id="form" action="" class=" items-center text-center mx-auto my-40 rounded-[20px]  bg-[#f5f5f5] w-xl h-170 "
+    method="get">
+    <h1 class="text-[30px] mx-auto items-center text-center font-bold "> ساخت اکانت </h1>
+    <div class="flex w-full flex-col">
+      <div class="px-5">
+        <input id="usern" class="border usename w-full h-15 px-5 rounded-[5px]  mt-5" type="text" placeholder="نام">
+        <span id="ermsg" class="errormsg hidden text-[darkred]">لطفا قسمت نام را خالی نزارید</span>
+      </div>
+      <div class="px-5">
+        <input id="uspass" class="border usename w-full h-15 px-5 rounded-[5px]  mt-5" type="password"
+          placeholder="رمز ">
+        <span id="ermsg1" class="errormsg1 hidden text-[darkred]">لطفا قسمت پسورد را خالی نگزارید</span>
+      </div>
+      <div class="px-5">
+        <input id="uspass" class="border usename w-full h-15 px-5 rounded-[5px]  mt-5" type="password"
+          placeholder="تکرار رمز عبور ">
+      </div>
+    </div>
+    </div>
+    <div class="px-8">
+      <a id="butnhref" href="#"><button class=" cursor-pointer  mt-5 w-full  decoration-0  h-15 px-10 bg-blue-700  "
+          id="btn" type="submit">ورود</button></a>
+    </div>
+
+
+
+    <h4 class="mt-10 px-1 ">داشتن اکانت یا <a href="index.html" class="text-blue-600 underline text-[18px] ">ثبت
+        نام</a>
+    </h4>
+    <div class="flex gap-5 items-center text-center justify-center">
+
+      <p class="dashes text-[#9EC8B9] px-5 w-full">______________________</p>
+      <h5 class="text text-[15px] ">Or</h5>
+      <p class="dashes1 text-[#9EC8B9] px-5 w-full">______________________</p>
+    </div>
+    <div class="flex flex-col items-center text-center px-15 justify-center ">
+
+      <div class=" bg-[#1949da] mt-5 w-full  flex      h-14  items-center text-center  ">
+        <a href="" class="items-center text-center w-full text-decoration-none">
+          Login with Facebook
+        </a>
+        <img class=" items-center text-center  mx-2.5  w-7  " src="img/Facebook_Logo_Primary.png">
+      </div>
+      <div class="mt-5 w-full  flex rounded-[5px] border   h-14  items-center text-center">
+        <a href="" class="items-center text-center w-full text-decoration-none">
+          Login with Google
+        </a>
+        <img class=" items-center text-center mx-2.5 w-7" src="img/New-Google-Logo.png">
+      </div>
+    </div>
+
+  </form>
+
+
+
+  <button class="btn1" id="btn1" onclick="deletlocal()" type="submit">
+    delet local
+  </button>
+
+  <script>
+    let $ = document;
+    let name, password;
+    name = $.getElementById("usern");
+    password = $.getElementById("uspass");
+    let form = $.getElementById("form");
+    let span = $.getElementById("ermsg");
+    let span1 = $.getElementById("ermsg1");
+    let span2 = $.getElementById("ermsg2");
+
+    form.addEventListener("submit", function signupsucss(event) {
+      event.preventDefault();
+
+      (Name = name.value), (Password = password.value);
+
+      if (Name === "" || Password === "") {
+        alert("You must fill in the given values ");
+      } else {
+        let userName1 = document.getElementById("usern").value;
+        let password2 = document.getElementById("uspass").value;
+        let alluserinlocal = JSON.parse(localStorage.getItem(userName1));
+        console.log(alluserinlocal);
+        if (alluserinlocal && alluserinlocal.Name === Name) {
+          alert("Someone else with this name has already logged in");
+        } else {
+          reset();
+          alert("signup succss");
+          window.location.href = "index.html";
+        }
+        let user = { Name, Password };
+        localStorage.setItem(Name, JSON.stringify(user));
+
+        let usersinformation = new Array();
+        usersinformation = JSON.parse(localStorage.getItem(Name))
+          ? JSON.parse(localStorage.getItem(Name))
+          : [];
+
+        // usersinformation.push({
+        //   "name ": name,
+        //   "password ":password
+        // })
+      }
+
+      function reset() {
+        document.getElementById("usern").value = "";
+        document.getElementById("uspass").value = "";
+      }
+    });
+
+    function deletlocal() {
+      localStorage.clear();
+    }
+
+    () => {
+      storage = JSON.parse(localStorage.getItem(""));
+      console.log(storage);
+      localStorage.setItem(
+        "singup_username",
+        JSON.stringify(usninf, usninf)
+      )();
+    };
+  </script>
+</body>
+
+</html>
+<!-- c:\Users\Supp-Boghrat\Desktop\new project\log.html -->
+
+<!-- function sendion(){
+    let storage = []
+   let usninf = usname.value;
+   let passinf = uspass.value;
+
+//    form.addEventListener('submit',function(event){
+//     event.preventDefault()
+//    })
+
+
+
+
+   let infoname ={
+    username : usninf,
+    userpassword:passinf
+
+   }
+   form.addEventListener('submit',function(event){
+    event.preventDefault()
+  })
+   if (usninf == ''|| passinf =="") {
+    span.style.display="block";
+    span1.style.display="block";
+    
+
+  }
+  else{
+    $.getElementById('butnhref').href='login.html';
+    
+
+    let infoname ={
+    username : usninf,
+    userpassword:passinf
+
+   }
+
+
+   storage.push(infoname);
+
+
+   localStorage.setItem('singup',JSON.stringify( storage));
+
+  } 
+
+
+} -->
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->

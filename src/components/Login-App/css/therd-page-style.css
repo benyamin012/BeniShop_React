@@ -1,0 +1,81 @@
+body{
+    background-color: #171115;
+}
+.bodydtl{
+    width: 1450px;
+    height: 820px;
+    color: blue;
+    border: 7px solid white;
+    position: relative;
+}
+.rightdtl{
+    width: 250px;
+    height: 820px;
+    color: blue;
+    border: 7px solid white;
+    margin-top: -825px;
+    margin-left: 1523px;
+    position: relative;
+}
+.adminbtn{
+    margin-top: -610px;
+    margin-left: 1587px;
+    position: absolute;
+    cursor: pointer;
+     text-decoration: none;
+   background-color: crimson;
+}
+.adminbtn1{
+    margin-top: -500px;
+    margin-left: 1578px;
+    position: absolute;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: crimson;
+}
+.adminbtn2{
+    margin-top: -400px;
+    margin-left: 1571px;
+    position: absolute;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: crimson;
+}
+
+
+.adminimg{
+    width: 150px;
+    border-radius: 50%;
+    margin-top: 15px;
+    margin-left: 52px;
+    position: absolute;
+}
+.table{
+   margin-left: 50px;
+    width: 1300px;
+    height: 250px;
+   color: #ff0c0c;
+  padding: .5rem,5.5rem;
+  margin-bottom: -14rem;
+}
+
+/* .table1{
+    margin-left: 50px;
+     width: 1300px;
+     height: 250px;
+    color: #ff0c0c;
+   padding: .5rem,5.5rem;
+   margin-bottom: -14rem;
+} */
+
+
+
+.table>:not(caption)>*>* {
+    padding: .5rem 5.5rem;
+}
+
+
+/* .tr{
+    margin-left: 500px;
+    width: 100%;
+} */

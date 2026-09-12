@@ -1,0 +1,35 @@
+{
+  "User": [
+    {
+      "username": "Farhan",
+      "password": "Farhan",
+      "confirmPassword": "Farhan",
+      "id": "d6kut89g2Y4"
+    },
+    {
+      "username": "Benyamin",
+      "password": "123",
+      "confirmPassword": "123",
+      "id": "ZUYswtTahcM"
+    },
+    {
+      "username": "MR.SALAR",
+      "password": "0123",
+      "confirmPassword": "0123",
+      "id": "99a03KmJ_wQ"
+    },
+    {
+      "username": "BM7",
+      "password": "123",
+      "confirmPassword": "123",
+      "id": "d8EJqMqSRwA"
+    },
+    {
+      "username": "Amir_Khalife",
+      "password": "Amir_Khalife",
+      "confirmPassword": "Amir_Khalife",
+      "id": "wx56Wgm6to8"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

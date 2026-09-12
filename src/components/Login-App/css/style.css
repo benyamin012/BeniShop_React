@@ -1,0 +1,26 @@
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("fonts/webfonts/Vazirmatn[wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+.basic-head-menu {
+  background: url("../img/header.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+@keyframes modalTop {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
