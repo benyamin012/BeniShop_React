@@ -13,46 +13,39 @@ export default function Login() {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      username: "",
+      userName: "",
       password: "",
     },
   });
   const navigate = useNavigate();
-  const formHandler = (formData) => {
-    console.log("LOGIN DATA:", formData);
+  const formhandle = async (data) => {
+    console.log(data);
 
-    fetch("http://localhost:3000/User")
-      .then((res) => res.json())
-      .then((users) => {
-        const user = users.find((user) => {
-          return (
-            user.username === formData.username &&
-            user.password === formData.password
-          );
-        });
+    const response = await fetch(
+      "http://farhanshop.runasp.net/identity/v1/Account/LoginUserByuserNameAndpassword",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
 
-        if (user) {
-          login(user);
+        body: JSON.stringify(data),
+      },
+    );
 
-          alert("Login successful ✅");
+    if (response.ok) {
+      alert("Signin sucss");
 
-          navigate("/");
-        } else {
-          navigate("/signup");
-          console.log("User not found");
-          alert("Username or password is incorrect ❌");
-        }
-      })
-      .catch((error) => {
-        console.error("❌ ERROR:", error);
-        alert("Something went wrong!");
-      });
+      // navigate("/Login");
+    } else {
+      alert("password not like confirmpassword");
+    }
   };
 
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-950 via-blue-950 to-slate-900 flex items-center justify-center px-4 py-10">
       <form
-        onSubmit={handleSubmit(formHandler)}
+        onSubmit={handleSubmit(formhandle)}
         className="w-full max-w-md bg-white rounded-3xl shadow-2xl p-8 sm:p-10"
       >
         {/* Header */}
@@ -68,41 +61,41 @@ export default function Login() {
           </p>
         </div>
 
-        {/* Username */}
+        {/* userName */}
         <div className="mb-5">
           <label className="mb-2 block text-sm font-medium text-slate-700">
-            Username
+            userName
           </label>
 
           <input
             type="text"
-            placeholder="Enter your username"
+            placeholder="Enter your userName"
             className={`w-full rounded-xl border px-4 py-3 outline-none transition
               ${
-                errors.username
+                errors.userName
                   ? "border-red-400 focus:ring-2 focus:ring-red-100"
                   : "border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
               }
             `}
-            {...register("username", {
-              required: "Username is required",
+            {...register("userName", {
+              required: "userName is required",
               minLength: {
-                message: "Username must be at least 4 characters.",
+                message: "userName must be at least 4 characters.",
               },
             })}
           />
 
-          {errors.username && (
+          {errors.userName && (
             <p className="mt-2 text-xs text-red-500">
-              {errors.username.message}
+              {errors.userName.message}
             </p>
           )}
         </div>
 
-        {/* Password */}
+        {/* password */}
         <div className="mb-6">
           <label className="mb-2 block text-sm font-medium text-slate-700">
-            Password
+            password
           </label>
 
           <input
@@ -116,13 +109,13 @@ export default function Login() {
               }
             `}
             {...register("password", {
-              required: "Password is required",
+              required: "password is required",
               minLength: {
-                message: "Password must be at least 8 characters.",
+                message: "password must be at least 8 characters.",
               },
               pattern: {
                 message:
-                  "Password must contain uppercase, lowercase, number and special character.",
+                  "password must contain uppercase, lowercase, number and special character.",
               },
             })}
           />

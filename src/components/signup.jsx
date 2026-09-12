@@ -12,8 +12,10 @@ export default function Signup() {
   } = useForm();
   const navigate = useNavigate();
   const formhandle = async (data) => {
+    console.log(data);
+
     const response = await fetch(
-      "http://farhanshop.runasp.net/scalar/#identity-api-v1/tag/account",
+      "http://farhanshop.runasp.net/identity/v1/Account/RegisterUserByuserNameAndPassword",
       {
         method: "POST",
         headers: {
@@ -27,7 +29,7 @@ export default function Signup() {
       if (response.ok) {
         alert("Signin sucss");
 
-        navigate("/Login");
+        // navigate("/Login");
       }
     } else {
       alert("password not like confirmPassword");
@@ -55,10 +57,10 @@ export default function Signup() {
           </p>
         </div>
 
-        {/* Username */}
+        {/* userName */}
         <div className="mb-5">
           <label className="mb-2 block text-sm font-medium text-slate-700">
-            Username
+            userName
           </label>
 
           <input
@@ -66,19 +68,19 @@ export default function Signup() {
             placeholder="Like, Benyamin"
             className={`w-full rounded-xl border px-4 py-3 outline-none transition
               ${
-                errors.username
+                errors.userName
                   ? "border-red-400 focus:ring-2 focus:ring-red-100"
                   : "border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
               }
             `}
-            {...register("username", {
+            {...register("userName", {
               required: "لطفا نام کاربری را وارد کنید",
             })}
           />
 
-          {errors.username && (
+          {errors.userName && (
             <p className="mt-2 text-xs text-red-500">
-              {errors.username.message}
+              {errors.userName.message}
             </p>
           )}
         </div>
