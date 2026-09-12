@@ -39,7 +39,7 @@ export default function Login() {
           navigate("/");
         } else {
           navigate("/signup");
-          console.log("❌ User not found");
+          console.log("User not found");
           alert("Username or password is incorrect ❌");
         }
       })
