@@ -12,7 +12,6 @@ import HamberMenu from "./HamburgerMenuUi";
 import { MdArrowDropDown } from "react-icons/md";
 
 function Header() {
-  console.log("test out");
   const [products, setProducts] = useState([]);
   const [usermodal, setusermodal] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
@@ -21,9 +20,9 @@ function Header() {
   const { cart, user, logout, addToCart, increaseQuantity, decreaseQuantity } =
     useAppStore();
 
-  useEffect(() => {
-    console.log("test in");
+  console.log(user);
 
+  useEffect(() => {
     const currentUser = localStorage.getItem("currentUser");
     console.log(currentUser);
   }, []);

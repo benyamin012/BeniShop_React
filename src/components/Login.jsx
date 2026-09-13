@@ -5,8 +5,9 @@ import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import useAppStore from "../store/useZustand";
+import { useQuery,useMutation } from "@tanstack/react-query";
 export default function Login() {
-  const { login } = useAppStore();
+  // const { login } = useAppStore();
   const {
     register,
     handleSubmit,
@@ -21,22 +22,69 @@ export default function Login() {
   const formhandle = async (data) => {
     console.log(data);
 
-    const response = await fetch(
-      "http://farhanshop.runasp.net/identity/v1/Account/LoginUserByuserNameAndpassword",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+    // const response = await fetch();
+    const {
+      data: a,
+      isLoading,
+      isError,
+      error,
+    } = useQuery({
+      queryKey: ["login"],
+      queryFn: async () => {
+        const response = await fetch(
+          "http://farhanshop.runasp.net/identity/v1/Account/LoginUserByuserNameAndpassword",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
 
-        body: JSON.stringify(data),
+            body: JSON.stringify(data),
+          },
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch products");
+        }
+
+        return response.json();
       },
-    );
+    });
 
-    if (response.ok) {
+    let result = await response.json();
+
+    // const token = localStorage.getItem("accessToken");
+
+    if (result.statusCode === 200) {
+      const accessToken = result?.data?.accessToken;
+      console.log(accessToken);
+      // const accessToken = result.data.accessToken;
+
       alert("Signin sucss");
 
+      localStorage.setItem("accessToken", result.data.accessToken);
+      localStorage.setItem("refreshToken", result.data.refreshToken);
+
       // navigate("/Login");
+
+      const givLogerData = await fetch(
+        "http://farhanshop.runasp.net/identity/v1/Account/GetUserProfile",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
+          },
+        },
+      );
+
+      console.log("PROFILE STATUS:", givLogerData.status);
+
+      const profileText = await givLogerData.text();
+
+      console.log("PROFILE RESPONSE:", profileText);
+
+      console.log(givLogerData);
     } else {
       alert("password not like confirmpassword");
     }
