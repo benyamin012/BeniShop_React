@@ -5,7 +5,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import useAppStore from "../store/useZustand";
-import { useQuery,useMutation } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
 export default function Login() {
   // const { login } = useAppStore();
   const {
@@ -26,6 +26,7 @@ export default function Login() {
     const {
       data: a,
       isLoading,
+      isSuccess,
       isError,
       error,
     } = useQuery({
@@ -43,7 +44,7 @@ export default function Login() {
           },
         );
 
-        if (!response.ok) {
+        if (isSuccess) {
           throw new Error("Failed to fetch products");
         }
 

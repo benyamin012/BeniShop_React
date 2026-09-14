@@ -18,9 +18,6 @@ const useAppStore = create((set) => ({
   },
 
   addToCart: (product) => {
-    set({ p: product });
-    console.log(p);
-
     set((state) => {
       const existingProduct = state.cart.find((item) => item.id === product.id);
 

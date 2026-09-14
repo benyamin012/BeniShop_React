@@ -17,7 +17,9 @@ function ShoppingCart(item) {
     decreaseQuantity,
     removeFromCart,
   } = useAppStore();
-  console.log("item", item.item);
+
+  console.log("item", item);
+  console.log("Cart", cart);
 
   const handelDeleteCount = () => {
     removeFromCart(item.item.id);

@@ -10,6 +10,7 @@ import ShoppingCart from "./shoppingCart";
 import { MdMenu } from "react-icons/md";
 import HamberMenu from "./HamburgerMenuUi";
 import { MdArrowDropDown } from "react-icons/md";
+import CheckOut from "./CheckOut/CheckoutPage";
 
 function Header() {
   const [products, setProducts] = useState([]);
@@ -19,6 +20,7 @@ function Header() {
   const [cartCount, setCartCount] = useState(0);
   const { cart, user, logout, addToCart, increaseQuantity, decreaseQuantity } =
     useAppStore();
+  console.log(cart);
 
   console.log(user);
 
@@ -233,7 +235,7 @@ function Header() {
                 className="font-medium cursor-pointer w-full  py-2.5 max-md:p-1.5  bg-[#1850E3] rounded-[20px] text-white text-[20px] "
                 onClick={() => {
                   if (user) {
-                    window.location.href = "/checkOut";
+                    navigate("/checkout");
                   } else {
                     window.location.href = "/login";
                   }

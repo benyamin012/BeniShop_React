@@ -1,7 +1,23 @@
-import React from "react";
+import { useContext } from "react";
+import { CartContext } from "../context";
 import ShippingInf from "./SippingInformation.jsx";
 import OrderSummery from "./OrderSummery.jsx";
+import useAppStore from "../store/useZustand.js";
 function CheckOut() {
+  const {
+    cart,
+    addToCart,
+    increaseQuantity,
+    decreaseQuantity,
+    removeFromCart,
+  } = useAppStore();
+
+  console.log("cart", cart);
+
+  console.log("user", user);
+  console.log("add", addToCart);
+  console.log("incers", increaseQuantity);
+
   return (
     <>
       <div className="container mx-auto px-9">
