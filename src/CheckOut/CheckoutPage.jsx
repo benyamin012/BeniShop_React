@@ -14,7 +14,7 @@ function CheckOut() {
 
   console.log("cart", cart);
 
-  console.log("user", user);
+  // console.log("user", user);
   console.log("add", addToCart);
   console.log("incers", increaseQuantity);
 
