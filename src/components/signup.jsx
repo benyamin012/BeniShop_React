@@ -26,7 +26,7 @@ export default function Signup() {
       if (response.ok) {
         alert("Signin sucss");
 
-        // navigate("/Login");
+        navigate("/Login");
       }
     } else {
       alert("password not like confirmPassword");
