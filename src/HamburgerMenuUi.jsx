@@ -19,14 +19,14 @@ function HamberMenu({ isOpen, categories = [], products = [], onClose }) {
           type="button"
           aria-label="Close navigation menu"
           onClick={onClose}
-          className="fixed inset-x-0 bottom-0 top-16 z-9997 bg-black/30 md:hidden"
+          className="fixed inset-x-0 bottom-0 top-15 z-9997 bg-black/30 md:hidden"
         />
       )}
 
       {/* Mobile Drawer */}
       <aside
         aria-hidden={!isOpen}
-        className={`fixed bottom-0 left-0 top-16 z-9998 flex w-[min(320px,90vw)] flex-col overflow-hidden bg-white shadow-xl transition-transform duration-300 ease-in-out md:hidden sm:w-90 ${
+        className={`fixed bottom-0 left-0 top-15 z-9998 flex w-[min(320px,90vw)] flex-col overflow-hidden bg-white shadow-xl transition-transform duration-300 ease-in-out md:hidden sm:w-90 ${
           isOpen
             ? "translate-x-0 pointer-events-auto"
             : "-translate-x-full pointer-events-none"

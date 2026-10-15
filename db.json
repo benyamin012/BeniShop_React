@@ -31,28 +31,10 @@
       "id": "wx56Wgm6to8"
     },
     {
-      "userName": "Benyamin",
-      "password": "123",
-      "confirmPassword": "123",
-      "id": "sgP-Fa8C4NY"
-    },
-    {
       "userName": "mr.majid",
       "password": "741",
       "confirmPassword": "741",
       "id": "ZszQ_onqADg"
-    },
-    {
-      "userName": "ms.dariyan",
-      "password": "123",
-      "confirmPassword": "123",
-      "id": "u98RDtW3xiI"
-    },
-    {
-      "userName": "ali",
-      "password": "123",
-      "confirmPassword": "123",
-      "id": "5pnexTzb_Hg"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

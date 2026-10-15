@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function BanerOfBody() {
   return (
-    <div className="relative ">
+    <div className="relative max-lg:mt-5 ">
       <div className="container mx-auto px-9 max-lg:px-0 max-sm:px-2.5 w-full relative ">
         <img
           src="/img/ChatGPT Image Aug 3, 2026, 01_47_50 PM.png"

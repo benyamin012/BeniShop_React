@@ -26,7 +26,7 @@ export default function Login() {
       .then((users) => {
         const user = users.find((user) => {
           return (
-            user.username === formData.username &&
+            user.username === formData.userName &&
             user.password === formData.password
           );
         });
