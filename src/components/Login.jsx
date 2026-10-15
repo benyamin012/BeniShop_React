@@ -18,28 +18,35 @@ export default function Login() {
     },
   });
   const navigate = useNavigate();
-  const formhandle = async (data) => {
-    console.log(data);
+  const formhandle = (formData) => {
+    console.log("LOGIN DATA:", formData);
 
-    const response = await fetch(
-      "http://farhanshop.runasp.net/identity/v1/Account/LoginUserByuserNameAndpassword",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+    fetch("http://localhost:3000/User")
+      .then((res) => res.json())
+      .then((users) => {
+        const user = users.find((user) => {
+          return (
+            user.username === formData.username &&
+            user.password === formData.password
+          );
+        });
 
-        body: JSON.stringify(data),
-      },
-    );
+        if (user) {
+          login(user);
 
-    if (response.ok) {
-      alert("Signin sucss");
+          alert("Login successful ✅");
 
-      // navigate("/Login");
-    } else {
-      alert("password not like confirmpassword");
-    }
+          navigate("/");
+        } else {
+          navigate("/signup");
+          console.log("User not found");
+          alert("Username or password is incorrect ❌");
+        }
+      })
+      .catch((error) => {
+        console.error("❌ ERROR:", error);
+        alert("Something went wrong!");
+      });
   };
 
   return (

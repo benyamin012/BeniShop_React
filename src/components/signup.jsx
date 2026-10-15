@@ -14,17 +14,14 @@ export default function Signup() {
   const formhandle = async (data) => {
     console.log(data);
 
-    const response = await fetch(
-      "http://farhanshop.runasp.net/identity/v1/Account/RegisterUserByuserNameAndPassword",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-
-        body: JSON.stringify(data),
+    const response = await fetch("http://localhost:3000/User", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-    );
+
+      body: JSON.stringify(data),
+    });
     if (data.password === data.confirmPassword) {
       if (response.ok) {
         alert("Signin sucss");

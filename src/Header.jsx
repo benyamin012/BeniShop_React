@@ -12,7 +12,6 @@ import HamberMenu from "./HamburgerMenuUi";
 import { MdArrowDropDown } from "react-icons/md";
 
 function Header() {
-  console.log("test out");
   const [products, setProducts] = useState([]);
   const [usermodal, setusermodal] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
@@ -113,7 +112,7 @@ function Header() {
                 console.log(usermodal);
               }}
             >
-              {user.username}
+              {user.userName}
               <MdArrowDropDown />
             </span>
           ) : (

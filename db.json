@@ -29,6 +29,12 @@
       "password": "Amir_Khalife",
       "confirmPassword": "Amir_Khalife",
       "id": "wx56Wgm6to8"
+    },
+    {
+      "userName": "Benyamin",
+      "password": "123",
+      "confirmPassword": "123",
+      "id": "sgP-Fa8C4NY"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
