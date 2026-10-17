@@ -12,24 +12,36 @@ export default function Signup() {
   } = useForm();
   const navigate = useNavigate();
   const formhandle = async (data) => {
-    console.log(data);
-    if (data.password === data.confirmPassword) {
-      const response = await fetch("http://localhost:3000/User", {
+    if (data.password !== data.confirmPassword) {
+      alert("Passwords do not match.");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:4000/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-
-        body: JSON.stringify(data),
+        credentials: "include",
+        body: JSON.stringify({
+          username: data.userName.trim(),
+          password: data.password,
+        }),
       });
 
-      if (response.ok) {
-        alert("Signin sucss");
+      const result = await response.json();
 
-        navigate("/Login");
+      if (!response.ok) {
+        throw new Error(
+          result.message || result.error || "Registration failed.",
+        );
       }
-    } else {
-      alert("password not like confirmPassword");
+
+      alert("Account created successfully. Please log in.");
+      navigate("/login");
+    } catch (error) {
+      alert(error.message || "Could not connect to the server.");
     }
   };
 

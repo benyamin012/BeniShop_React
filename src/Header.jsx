@@ -232,7 +232,7 @@ function Header() {
               onClick={handleUserClick}
               className="mr-5 inline-flex items-center gap-1 text-[18px] font-medium capitalize text-[#2563EB] transition-colors duration-300 hover:text-[#114EF7] sm:mr-15"
             >
-              {user.userName}
+              {user.username}
               <MdArrowDropDown />
             </button>
           ) : (

@@ -18,35 +18,36 @@ export default function Login() {
     },
   });
   const navigate = useNavigate();
-  const formhandle = (formData) => {
-    console.log("LOGIN DATA:", formData);
-
-    fetch("http://localhost:3000/User")
-      .then((res) => res.json())
-      .then((users) => {
-        const user = users.find((user) => {
-          return (
-            user.username === formData.userName &&
-            user.password === formData.password
-          );
-        });
-
-        if (user) {
-          login(user);
-
-          alert("Login successful ✅");
-
-          navigate("/");
-        } else {
-          navigate("/signup");
-          console.log("User not found");
-          alert("Username or password is incorrect ❌");
-        }
-      })
-      .catch((error) => {
-        console.error("❌ ERROR:", error);
-        alert("Something went wrong!");
+  const formhandle = async (formData) => {
+    try {
+      const response = await fetch("http://localhost:4000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({
+          username: formData.userName.trim(),
+          password: formData.password,
+        }),
       });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || result.error || "Login failed.");
+      }
+
+      if (!result.accessToken || !result.user) {
+        throw new Error("The server response is incomplete.");
+      }
+
+      login(result.user, result.accessToken);
+
+      navigate("/");
+    } catch (error) {
+      alert(error.message || "Could not connect to the server.");
+    }
   };
 
   return (

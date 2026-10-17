@@ -3,18 +3,30 @@ import { create } from "zustand";
 const useAppStore = create((set) => ({
   cart: [],
 
-  user: JSON.parse(localStorage.getItem("currentUser")),
+  user: JSON.parse(localStorage.getItem("currentUser") || "null"),
+  accessToken: sessionStorage.getItem("accessToken") || null,
 
-  login: (user) => {
+  login: (user, accessToken) => {
     localStorage.setItem("currentUser", JSON.stringify(user));
+    sessionStorage.setItem("accessToken", accessToken);
 
-    set({ user });
+    set({ user, accessToken });
   },
 
-  logout: () => {
-    localStorage.removeItem("currentUser");
+  logout: async () => {
+    try {
+      await fetch("http://localhost:4000/api/auth/logout", {
+        method: "POST",
+        credentials: "include",
+      });
+    } catch (error) {
+      console.error("Logout request failed:", error);
+    } finally {
+      localStorage.removeItem("currentUser");
+      sessionStorage.removeItem("accessToken");
 
-    set({ user: null });
+      set({ user: null, accessToken: null });
+    }
   },
 
   addToCart: (product) => {
