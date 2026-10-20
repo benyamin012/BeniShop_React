@@ -5,6 +5,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import useAppStore from "../store/useZustand";
+import { API_PATHS, API_URL } from "../lib/apiFetch";
 export default function Login() {
   const { login } = useAppStore();
   const {
@@ -20,7 +21,7 @@ export default function Login() {
   const navigate = useNavigate();
   const formhandle = async (formData) => {
     try {
-      const response = await fetch("http://localhost:4000/api/auth/login", {
+      const response = await fetch(`${API_URL}${API_PATHS.login}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -35,7 +36,9 @@ export default function Login() {
       const result = await response.json();
 
       if (!response.ok) {
-        throw new Error(result.message || result.error || "Login failed.");
+        throw new Error(
+          result.error.message || result.error || "Login failed.",
+        );
       }
 
       if (!result.accessToken || !result.user) {
@@ -119,6 +122,7 @@ export default function Login() {
             {...register("password", {
               required: "password is required",
               minLength: {
+                value: 8,
                 message: "password must be at least 8 characters.",
               },
               pattern: {

@@ -4,6 +4,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { API_PATHS, API_URL } from "../lib/apiFetch";
 export default function Signup() {
   const {
     register,
@@ -18,7 +19,7 @@ export default function Signup() {
     }
 
     try {
-      const response = await fetch("http://localhost:4000/api/auth/register", {
+      const response = await fetch(`${API_URL}${API_PATHS.register}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -31,10 +32,11 @@ export default function Signup() {
       });
 
       const result = await response.json();
+      console.log(result);
 
       if (!response.ok) {
         throw new Error(
-          result.message || result.error || "Registration failed.",
+          result.error.message || result.error || "Registration failed.",
         );
       }
 
@@ -42,6 +44,7 @@ export default function Signup() {
       navigate("/login");
     } catch (error) {
       alert(error.message || "Could not connect to the server.");
+      console.log();
     }
   };
 
