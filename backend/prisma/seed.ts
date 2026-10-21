@@ -1,11 +1,11 @@
-import { PrismaClient } from "@prisma/client";
+import { Prisma, PrismaClient } from "@prisma/client";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const prisma = new PrismaClient();
 const currentDir = path.dirname(fileURLToPath(import.meta.url));
-const catalogPath = path.resolve(currentDir, "../../../public/Data/data.json");
+const catalogPath = path.resolve(currentDir, "../../public/Data/data.json");
 
 type SourceCategory = {
   id: number;
@@ -98,7 +98,7 @@ async function main() {
             "rating",
           ].includes(key),
       ),
-    );
+    ) as Prisma.InputJsonObject;
 
     const discountMatch = product.Discount?.match(/\d+(?:\.\d+)?/);
     const discountPercent = discountMatch ? Number(discountMatch[0]) : 0;
