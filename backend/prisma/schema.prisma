@@ -8,11 +8,11 @@ datasource db {
 }
 
 model User {
-  id           String         @id @default(cuid())
-  username     String         @unique @db.VarChar(30)
-  passwordHash String
-  createdAt    DateTime       @default(now())
-  updatedAt    DateTime       @updatedAt
+  id            String         @id @default(cuid())
+  username      String         @unique @db.VarChar(30)
+  passwordHash  String
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
   refreshTokens RefreshToken[]
 
   @@map("users")
@@ -30,4 +30,46 @@ model RefreshToken {
   @@index([userId])
   @@index([expiresAt])
   @@map("refresh_tokens")
+}
+
+model Category {
+  id          Int        @id @default(autoincrement())
+  name        String     @db.VarChar(100)
+  persianName String?    @db.VarChar(100)
+  slug        String     @unique @db.VarChar(120)
+  parentId    Int?
+  isActive    Boolean    @default(true)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  parent      Category?  @relation("CategoryHierarchy", fields: [parentId], references: [id], onDelete: Restrict)
+  children    Category[] @relation("CategoryHierarchy")
+  products    Product[]
+
+  @@index([parentId])
+  @@index([isActive])
+  @@map("categories")
+}
+
+model Product {
+  id              Int      @id @default(autoincrement())
+  name            String   @db.VarChar(200)
+  persianName     String?  @db.VarChar(200)
+  description     String?  @db.Text
+  imageUrl        String?  @db.VarChar(1000)
+  price           Decimal  @db.Decimal(14, 0)
+  stock           Int      @default(0)
+  discountPercent Int      @default(0)
+  rating          Float    @default(0)
+  ratingCount     Int      @default(0)
+  attributes      Json     @default("{}")
+  categoryId      Int
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  category        Category @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+
+  @@index([categoryId, isActive])
+  @@index([isActive, createdAt])
+  @@index([name])
+  @@map("products")
 }
