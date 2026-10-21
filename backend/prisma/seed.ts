@@ -127,12 +127,8 @@ async function main() {
 
   // Keep generated IDs above the imported IDs so future admin-created records
   // cannot collide with the catalog IDs.
-  await prisma.$executeRawUnsafe(
-    'SELECT setval(pg_get_serial_sequence(\'"categories"\', \'id\'), GREATEST((SELECT COALESCE(MAX("id"), 1) FROM "categories"), 1))',
-  );
-  await prisma.$executeRawUnsafe(
-    'SELECT setval(pg_get_serial_sequence(\'"products"\', \'id\'), GREATEST((SELECT COALESCE(MAX("id"), 1) FROM "products"), 1))',
-  );
+  await prisma.$queryRaw`SELECT setval(pg_get_serial_sequence('categories', 'id'), COALESCE((SELECT MAX(id) FROM categories), 1))`;
+  await prisma.$queryRaw`SELECT setval(pg_get_serial_sequence('products', 'id'), COALESCE((SELECT MAX(id) FROM products), 1))`;
 
   console.log(
     `Seeded ${categories.length} categories and ${catalog.product.length} products.`,
