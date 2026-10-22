@@ -75,7 +75,7 @@ function Product({ data }) {
                   </span>
                 </div>
                 <h1 className=" font-bold text-[16px] py-1.5 max-lg:text-[14px] text-[#114EF7]">
-                  ${item.price.toLocaleString()}
+                  {Number(item.priceIrr ?? item.price).toLocaleString("fa-IR")} تومان
                 </h1>
               </div>
 
