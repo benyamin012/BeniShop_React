@@ -125,6 +125,13 @@ async function main() {
     });
   }
 
+  // Hide products removed from the source catalog. The API only returns active products.
+  // Keeping the rows avoids destructive deletion and allows them to be restored later.
+  await prisma.product.updateMany({
+    where: { id: { notIn: catalog.product.map((product) => product.id) } },
+    data: { isActive: false },
+  });
+
   // Keep generated IDs above the imported IDs so future admin-created records
   // cannot collide with the catalog IDs.
   await prisma.$queryRaw`SELECT setval(pg_get_serial_sequence('categories', 'id'), COALESCE((SELECT MAX(id) FROM categories), 1))`;
