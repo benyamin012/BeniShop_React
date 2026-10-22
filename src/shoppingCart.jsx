@@ -71,10 +71,14 @@ function ShoppingCart(item) {
                 </div>
               </div>
             </div>
-
-            <h1 className="px-2.5 flex items-end font-bold text-[16px] ml-30 py-3 text-[#2C65E5] ">
-              ${item.item.price.toLocaleString()}
-            </h1>
+            $
+            {Number(item.item.priceUsd ?? item.item.price).toLocaleString(
+              "en-US",
+              {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              },
+            )}
           </div>
 
           <div className=" ml-5 max-md:ml-0 gap-22 items-center text-center cursor-pointer flex justify-center py-5  px-5  w-[25%] rounded-[10px]">

@@ -1,0 +1,7 @@
+warning: in the working copy of 'backend/prisma/migrations/migration_lock.toml', LF will be replaced by CRLF the next time Git touches it
+ src/Header.jsx          |    6 [32m+[m[31m-[m
+ src/ProductDetail.jsx   |    6 [32m+[m[31m-[m
+ src/app.jsx             |    2 [32m+[m[31m-[m
+ src/products.jsx        | 1987 [32m+[m[31m----------------------------------------------[m
+ src/store/useZustand.js |   91 [32m++[m[31m-[m
+ 5 files changed, 63 insertions(+), 2029 deletions(-)

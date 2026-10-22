@@ -20,10 +20,20 @@ function CartDetails() {
   const [loading, setLoading] = useState(true);
 
   const { id } = useParams();
-  const { cart, addToCart, increaseQuantity, decreaseQuantity } = useAppStore();
+  const { cart, addToCart, removeFromCart } = useAppStore();
 
-  const quantity = cart.find((item) => item.id === Number(id))?.quantity ?? 0;
+  const quantity =
+    cart.find((item) => Number(item.id) === Number(id))?.quantity ?? 0;
 
+  const isInCart = cart.some((item) => Number(item.id) === Number(id));
+
+  const handleToggleCart = () => {
+    if (isInCart) {
+      removeFromCart(Number(id));
+    } else if (product) {
+      addToCart(product);
+    }
+  };
   useEffect(() => {
     async function getProduct() {
       try {
@@ -45,11 +55,6 @@ function CartDetails() {
 
     getProduct();
   }, [id]);
-
-  const addToShopingCart = () => {
-    addToCart(product);
-    console.log(product);
-  };
 
   if (loading) {
     return <ProductDetailLoading />;
@@ -87,10 +92,16 @@ function CartDetails() {
               </div>
               <div className="flex flex-col gap-1">
                 <span className="font-black text-[26px] text-[#0E61F4] max-xl:text-[20px] max-lg:text-[16px] max-md:text-[16px]">
-                  {Number(product.priceIrr ?? product.price).toLocaleString(
-                    "fa-IR",
-                  )}{" "}
-                  تومان
+                  <h1 className=" font-bold font-iranyekan text-[16px] py-1.5 max-lg:text-[14px] text-[#114EF7]">
+                    <h1 className="font-bold font-iranyekan text-[22px] py-1.5 max-lg:text-[14px] text-[#114EF7]">
+                      {product.priceUsd != null
+                        ? `$${Number(product.priceUsd).toLocaleString("en-US", {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2,
+                          })}`
+                        : "قیمت نامشخص"}
+                    </h1>
+                  </h1>
                 </span>
                 <span className="text-sm text-gray-500">
                   {product.priceUsd != null
@@ -99,9 +110,9 @@ function CartDetails() {
                 </span>
               </div>
               <div className="border-t border-t-gray py-5 mt-5 flex flex-col gap-1.5">
-                <span className="font-medium text-[20px] py-2 max-xl:text-[18px] max-sm:text-[16px] ">
+                <span className="font-medium text-[20px]  py-1 max-2xl:line-clamp-3 max-xl:text-[18px] max-sm:text-[16px] ">
                   Description :{" "}
-                  <span className=" block font-normal text-[16px]  max-xl:line-clamp-1 max-xl:w-78 max-lg:text-[14px] max-sm:text-[10px]  text-justify  max-sm:w-45 max-md:w-60  ">
+                  <span className=" block font-normal text-[16px]    max-xl:w-78 max-lg:text-[14px] max-sm:text-[10px]  text-justify  max-sm:w-45 max-md:w-60  ">
                     {product.descriptionFa ||
                       product.description ||
                       "توضیحی برای این محصول ثبت نشده است."}
@@ -142,15 +153,22 @@ function CartDetails() {
                 </div>
               </div>
               <div className="flex flex-col w-full  justify-start items-start text-start  gap-1.5 py-3.5">
-                <div className="   bg-[#1850E3]  rounded-[10px]   w-full items-center justify-center text-center">
-                  <button
-                    className="font-medium cursor-pointer gap-2.5  py-1.5 flex flex-row-reverse items-center text-center justify-center mx-auto text-white text-[20px] max-lg:text-[14px] max-md:text-[10px] max-xl:text-[16px] max-xl:p-2.5 max-sm:text-[10px] "
-                    onClick={addToShopingCart}
-                  >
-                    Add To Cart
-                    <IoCartOutline className=" text-2xl max-lg:text-[20px] max-md:text-[14px] max-sm:text-[16px] font-semibold " />
-                  </button>
-                </div>
+                <button
+                  className={
+                    isInCart
+                      ? "bg-[#ffffff4e] cursor-pointer border border-[blue] p-1.5 duration-100 rounded-b-[7px] text-[#0084ff] text-[14px] gap-2.5 w-full items-center text-center flex justify-center"
+                      : "cursor-pointer bg-[#0257EF] p-1.5 rounded-b-[7px] text-[#CEE7FE] text-[14px] gap-2.5 w-full items-center text-center flex justify-center"
+                  }
+                  onClick={handleToggleCart}
+                >
+                  {isInCart ? (
+                    <FiMinus size={20} />
+                  ) : (
+                    <IoCartOutline size={25} />
+                  )}
+
+                  {isInCart ? "Remove" : "Add To Cart"}
+                </button>
                 <Link
                   to={"/"}
                   className=" text-[#1850e3]  w-full  rounded-[10px] py-1.5"

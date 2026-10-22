@@ -2,7 +2,7 @@ import { Prisma } from "@prisma/client";
 import { Router } from "express";
 import { z } from "zod";
 import { prisma } from "../lib/prisma.js";
-
+import { getUsdTomanRate } from "../services/exchangeRate.js";
 const router = Router();
 
 const listQuerySchema = z.object({
@@ -11,29 +11,46 @@ const listQuerySchema = z.object({
   category: z.string().trim().max(120).optional(),
   page: z.coerce.number().int().positive().default(1),
   limit: z.coerce.number().int().min(1).max(100).default(100),
-  sort: z.enum(["newest", "price-asc", "price-desc", "rating"]).default("newest"),
+  sort: z
+    .enum(["newest", "price-asc", "price-desc", "rating"])
+    .default("newest"),
 });
 
-function serializeProduct(product: {
-  id: number;
-  name: string;
-  persianName: string | null;
-  description: string | null;
-  descriptionFa: string | null;
-  imageUrl: string | null;
-  priceIrr: Prisma.Decimal;
-  priceUsd: Prisma.Decimal | null;
-  stock: number;
-  discountPercent: number;
-  rating: number;
-  ratingCount: number;
-  attributes: Prisma.JsonValue;
-  attributesFa: Prisma.JsonValue;
-  categoryId: number;
-  category: { id: number; name: string; persianName: string | null; slug: string };
-}) {
+function serializeProduct(
+  product: {
+    id: number;
+    name: string;
+    persianName: string | null;
+    description: string | null;
+    descriptionFa: string | null;
+    imageUrl: string | null;
+    priceIrr: Prisma.Decimal;
+    priceUsd: Prisma.Decimal | null;
+
+    stock: number;
+    discountPercent: number;
+    rating: number;
+    ratingCount: number;
+    attributes: Prisma.JsonValue;
+    attributesFa: Prisma.JsonValue;
+    categoryId: number;
+    category: {
+      id: number;
+      name: string;
+      persianName: string | null;
+      slug: string;
+    };
+  },
+  usdTomanRate: number | null,
+) {
   const price = Number(product.priceIrr);
-  const priceUsd = product.priceUsd == null ? null : Number(product.priceUsd);
+
+  const priceUsd =
+    usdTomanRate !== null && price > 0
+      ? Math.round((price / usdTomanRate) * 100) / 100
+      : product.priceUsd == null
+        ? null
+        : Number(product.priceUsd);
   const attributes =
     product.attributes &&
     typeof product.attributes === "object" &&
@@ -48,6 +65,7 @@ function serializeProduct(product: {
     price,
     priceIrr: price,
     priceUsd,
+    usdTomanRate,
     image: product.imageUrl ?? "",
     description: product.description ?? "",
     descriptionFa: product.descriptionFa ?? "",
@@ -139,13 +157,15 @@ router.get("/", async (req, res) => {
     prisma.product.count({ where }),
   ]);
 
+  const usdTomanRate = await getUsdTomanRate();
+
   // The default response is an array so the current product grid can switch
   // from Fake Store API without changing its data-mapping code.
   res.setHeader("X-Total-Count", String(total));
   res.setHeader("X-Page", String(page));
   res.setHeader("X-Page-Size", String(limit));
   res.setHeader("X-Total-Pages", String(Math.ceil(total / limit)));
-  res.json(products.map(serializeProduct));
+  res.json(products.map((product) => serializeProduct(product, usdTomanRate)));
 });
 
 router.get("/categories", async (_req, res) => {
@@ -180,7 +200,10 @@ router.get("/:id", async (req, res) => {
 
   if (!Number.isSafeInteger(id) || id < 1) {
     res.status(400).json({
-      error: { code: "INVALID_PRODUCT_ID", message: "Product ID must be a positive integer." },
+      error: {
+        code: "INVALID_PRODUCT_ID",
+        message: "Product ID must be a positive integer.",
+      },
     });
     return;
   }
@@ -197,7 +220,9 @@ router.get("/:id", async (req, res) => {
     return;
   }
 
-  res.json(serializeProduct(product));
+  const usdTomanRate = await getUsdTomanRate();
+
+  res.json(serializeProduct(product, usdTomanRate));
 });
 
 export default router;

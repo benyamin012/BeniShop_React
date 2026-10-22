@@ -131,7 +131,8 @@ function Header() {
 
   // Calculate the total cart price.
   const total = cart.reduce((sum, item) => {
-    return sum + item.price * item.quantity;
+    const price = Number(item.priceUsd ?? item.price ?? 0);
+    return sum + price * item.quantity;
   }, 0);
 
   // Get unique product categories.
@@ -322,20 +323,26 @@ function Header() {
               </div>
 
               {/* Cart products */}
-              <div className="max-h-[55vh] overflow-y-auto">
+              <div className="max-h-[55vh] overflow-y-auto" data-lenis-prevent>
                 {cart.map((item) => (
                   <ShoppingCart key={item.id} item={item} />
                 ))}
               </div>
 
               {/* Cart total */}
-              <div className="flex w-full items-center justify-between border-t border-[#EFF1F6] px-5 py-4 sm:px-10">
+              <div className="flex  w-full items-center justify-between border-t border-[#EFF1F6] px-5 py-4 sm:px-10">
                 <span className="text-[16px] font-medium sm:text-[18px]">
                   Total:
                 </span>
 
                 <span className="text-[16px] font-bold text-[#2C65E5]">
-                  {total.toLocaleString("fa-IR")} تومان
+                  <span className="text-[16px] font-bold text-[#2C65E5]">
+                    $
+                    {total.toLocaleString("en-US", {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2,
+                    })}
+                  </span>
                 </span>
               </div>
 

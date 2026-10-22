@@ -1,4 +1,44 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap");
+
+@font-face {
+  font-family: iranyekan;
+  font-style: normal;
+  font-weight: bold;
+  src: url("fonts/eot/iranyekanwebboldfanum.eot");
+  src: url("fonts/eot/iranyekanwebboldfanum.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-8 */ url("fonts/woff/iranyekanwebboldfanum.woff") format("woff"),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+      url("fonts/ttf/iranyekanwebboldfanum.ttf") format("truetype");
+}
+/* Use Vazirmatn as the default Tailwind sans-serif font */
+@theme {
+  --font-iranyekan: "iranyekan";
+}
+
+:root {
+  --swiper-navigation-size: 30px;
+  font-family: "Vazirmatn", sans-serif;
+
+}
+
+
+
+html,
+body,
+#root {
+  font-family: "Vazirmatn", sans-serif;
+}
+
+button,
+input,
+textarea,
+select,
+option {
+  font: inherit;
+}
+
 .mySwiper {
   padding: 20px 35px 60px;
 }
@@ -11,13 +51,13 @@
 .mySwiper .swiper-pagination {
   bottom: 0 !important;
 }
+
 .swiper-button-next {
-  right: 0px;
+  right: 0;
 }
 
 .swiper-button-prev {
-  left: 0px;
-  
+  left: 0;
 }
 
 .mySwiper .swiper-pagination-bullet {
@@ -27,7 +67,4 @@
 
 .mySwiper .swiper-pagination-bullet-active {
   background: #2563eb !important;
-}
-:root {
-    --swiper-navigation-size: 30px;
 }
