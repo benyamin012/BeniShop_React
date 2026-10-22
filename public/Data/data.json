@@ -80,7 +80,6 @@
       ]
     }
   ],
-
   "product": [
     {
       "id": 1,
@@ -188,33 +187,6 @@
       "rating": 5
     },
     {
-      "id": 8,
-      "name": "T-shirt",
-      "fname": "تیشرت",
-      "img": "/img/df2e7925aea091c4ba028e57d6e060257ef3c385_1779909030.webp",
-      "size": "xl",
-      "color": "red",
-      "categoryId": 2,
-      "Amount": 5000000,
-      "stock": 10,
-      "Discount": "10%",
-      "Comments": 9,
-      "rating": 1
-    },
-    {
-      "id": 9,
-      "name": "Blouse",
-      "img": "/img/43ec9fd1919918069e0ad2cdb149073e04542241_1782751756.webp",
-      "size": "lg",
-      "color": "blue",
-      "categoryId": 2,
-      "Amount": 3000000,
-      "stock": 15,
-      "Discount": "10%",
-      "Comments": 8,
-      "rating": 1
-    },
-    {
       "id": 10,
       "name": "Overcoat",
       "fname": "پالتو",
@@ -226,62 +198,6 @@
       "stock": 6,
       "Discount": "10%",
       "Comments": 5,
-      "rating": 2
-    },
-    {
-      "id": 11,
-      "name": "Jacket",
-      "fname": "کاپشن",
-      "img": "/img/00c9f4aa8e8a3064008fe0a47e92530428b18ab9_1778597297.webp",
-      "size": "xl",
-      "color": "blue",
-      "categoryId": 2,
-      "Amount": 7000000,
-      "stock": 4,
-      "Discount": "10%",
-      "Comments": 45,
-      "rating": 3
-    },
-    {
-      "id": 12,
-      "name": "Shirt",
-      "fname": "پیراهن",
-      "img": "/img/2481f2aebc6998f6e2f083d1faf2a035fe699e78_1755038732.webp",
-      "size": "lg",
-      "color": "white",
-      "categoryId": 3,
-      "Amount": 2500000,
-      "stock": 8,
-      "Discount": "10%",
-      "Comments": 65,
-      "rating": 1
-    },
-    {
-      "id": 13,
-      "name": "T-shirt",
-      "fname": "تی شرت",
-      "img": "/img/08efe5a787d8055f2b80e6a2acb771ad1194a67b_1783342278.webp",
-      "size": "lg",
-      "color": "blue",
-      "categoryId": 3,
-      "Amount": 1500000,
-      "stock": 5,
-      "Discount": "10%",
-      "Comments": 5,
-      "rating": 1
-    },
-    {
-      "id": 14,
-      "name": "Jacket",
-      "fname": "کاپشن",
-      "img": "/img/00c9f4aa8e8a3064008fe0a47e92530428b18ab9_1778597297.webp",
-      "size": "3xl",
-      "color": "brown",
-      "categoryId": 2,
-      "Amount": 4500000,
-      "stock": 3,
-      "Discount": "10%",
-      "Comments": 7,
       "rating": 2
     },
     {
@@ -366,48 +282,6 @@
       "Discount": "10%",
       "Comments": 6,
       "rating": 3
-    },
-    {
-      "id": 21,
-      "name": "Sniper rifle",
-      "fname": "اسلحه تک تیر انداز",
-      "img": "/img/1-16.jpg",
-      "brand": "Kral Puncher Breaker PCP",
-      "categoryId": 10,
-      "color": "back",
-      "Amount": 50000000,
-      "stock": 1,
-      "Discount": "10%",
-      "Comments": 7,
-      "rating": 4
-    },
-    {
-      "id": 22,
-      "name": "Shotgun",
-      "fname": "شاتگان",
-      "img": "/img/8-9.jpg",
-      "brand": "FN SLP",
-      "color": "back",
-      "categoryId": 10,
-      "Amount": 36000000,
-      "stock": 2,
-      "Discount": "10%",
-      "Comments": 9,
-      "rating": 3
-    },
-    {
-      "id": 23,
-      "name": "kflsadjf;",
-      "fname": "شاتگان",
-      "img": "/img/8-9.jpg",
-      "brand": "FN SLP",
-      "color": "back",
-      "categoryId": 10,
-      "Amount": 36000000,
-      "stock": 2,
-      "Discount": "10%",
-      "Comments": 22,
-      "rating": 4
     }
   ]
 }
