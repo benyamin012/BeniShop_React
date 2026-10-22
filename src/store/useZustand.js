@@ -1,7 +1,7 @@
 import { create } from "zustand";
-
 import { API_PATHS } from "../lib/apiFetch";
 
+let restoreSessionPromise = null;
 const useAppStore = create((set) => ({
   cart: [],
 
@@ -10,56 +10,65 @@ const useAppStore = create((set) => ({
 
   authStatus: "checking",
 
-  restoreSession: async () => {
-    try {
-      const response = await fetch(
-        `http://localhost:4000${API_PATHS.refresh}`,
-        {
-          method: "POST",
-          credentials: "include",
-        },
-      );
+  restoreSession: () => {
+    if (restoreSessionPromise) {
+      return restoreSessionPromise;
+    }
 
-      if (!response.ok) {
-        if (response.status === 401 || response.status === 403) {
-          localStorage.removeItem("currentUser");
-          sessionStorage.removeItem("accessToken");
-          localStorage.removeItem("accessToken");
+    restoreSessionPromise = (async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:4000${API_PATHS.refresh}`,
+          {
+            method: "POST",
+            credentials: "include",
+          },
+        );
 
-          set({
-            user: null,
-            accessToken: null,
-            authStatus: "unauthenticated",
-          });
+        if (!response.ok) {
+          if (response.status === 401 || response.status === 403) {
+            localStorage.removeItem("currentUser");
+            sessionStorage.removeItem("accessToken");
+            localStorage.removeItem("accessToken");
 
+            set({
+              user: null,
+              accessToken: null,
+              authStatus: "unauthenticated",
+            });
+
+            return;
+          }
+
+          set({ authStatus: "error" });
           return;
         }
 
+        const result = await response.json();
+
+        if (!result.accessToken || !result.user) {
+          set({ authStatus: "error" });
+          return;
+        }
+
+        localStorage.setItem("currentUser", JSON.stringify(result.user));
+
+        sessionStorage.setItem("accessToken", result.accessToken);
+
+        set({
+          user: result.user,
+          accessToken: result.accessToken,
+          authStatus: "authenticated",
+        });
+      } catch (error) {
+        console.error("Session restoration failed:", error);
         set({ authStatus: "error" });
-        return;
       }
+    })().finally(() => {
+      restoreSessionPromise = null;
+    });
 
-      const result = await response.json();
-
-      console.log(result);
-
-      if (!result.accessToken || !result.user) {
-        set({ authStatus: "error" });
-        return;
-      }
-
-      localStorage.setItem("currentUser", JSON.stringify(result.user));
-      sessionStorage.setItem("accessToken", result.accessToken);
-
-      set({
-        user: result.user,
-        accessToken: result.accessToken,
-        authStatus: "authenticated",
-      });
-    } catch (error) {
-      console.error("Session restoration failed:", error);
-      set({ authStatus: "error" });
-    }
+    return restoreSessionPromise;
   },
 
   login: (user, accessToken) => {

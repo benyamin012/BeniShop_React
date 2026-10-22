@@ -36,7 +36,7 @@ function Header() {
 
     async function getProducts() {
       try {
-        const response = await fetch("https://fakestoreapi.com/products");
+        const response = await fetch("http://localhost:4000/api/products");
 
         if (!response.ok) {
           throw new Error("Failed to fetch products");
@@ -230,7 +230,7 @@ function Header() {
               type="button"
               aria-expanded={userModalOpen}
               onClick={handleUserClick}
-              className="mr-5 inline-flex items-center gap-1 text-[18px] font-medium uppercase text-[#2563EB] transition-colors duration-300 hover:text-[#114EF7] sm:mr-15"
+              className="mr-5 inline-flex cursor-pointer items-center gap-1 text-[18px] font-medium uppercase text-[#2563EB] transition-colors duration-300 hover:text-[#114EF7] sm:mr-15"
             >
               {user.username}
               <MdArrowDropDown />
@@ -335,7 +335,7 @@ function Header() {
                 </span>
 
                 <span className="text-[16px] font-bold text-[#2C65E5]">
-                  ${total.toLocaleString()}
+                  {total.toLocaleString("fa-IR")} تومان
                 </span>
               </div>
 
