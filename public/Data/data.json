@@ -193,25 +193,26 @@
     },
     {
       "id": 6,
-      "name": "z fold 7",
-      "fname": "زد فولد 8",
+      "name": "Samsung Galaxy Z Fold7",
+      "fname": "سامسونگ گلکسی زد فولد ۷",
       "img": "/img/bfe8d2db8c2081dcd4652224de941f311a6f83be_1753803917.webp",
       "ram": "12G",
       "hard": "256-G",
       "color": "blue-black",
       "categoryId": 5,
-      "Amount": 580000000,
+      "Amount": 510000000,
       "stock": 2,
       "Discount": "10%",
       "Comments": 2,
       "rating": 5,
-      "description": "Samsung Galaxy Z Fold series listing. Confirm the exact generation, storage capacity and regional variant.",
-      "descriptionFa": "محصولی از سری سامسونگ گلکسی Z Fold. نسل دقیق، ظرفیت حافظه و نسخه منطقه‌ای دستگاه را تأیید کنید.",
+      "description": "Samsung Galaxy Z Fold7, 256GB storage and 12GB RAM. Listed international price is a reference and may vary by seller, tax and region.",
+      "descriptionFa": "گوشی سامسونگ گلکسی زد فولد ۷ با حافظه داخلی ۲۵۶ گیگابایت و رم ۱۲ گیگابایت. قیمت دلاری ثبت‌شده قیمت مرجع است و ممکن است با توجه به فروشنده، مالیات و کشور مقصد تغییر کند.",
       "attributesFa": {
         "حافظه رم": "12G",
         "حافظه داخلی": "256-G",
         "رنگ": "blue-black"
-      }
+      },
+      "priceUsd": 1999
     },
     {
       "id": 7,
