@@ -21,6 +21,10 @@ type SourceProduct = {
   img?: string;
   categoryId: number;
   Amount: number;
+  priceUsd?: number | null;
+  description?: string | null;
+  descriptionFa?: string | null;
+  attributesFa?: Record<string, unknown>;
   stock?: number;
   Discount?: string;
   Comments?: number;
@@ -92,6 +96,10 @@ async function main() {
             "img",
             "categoryId",
             "Amount",
+            "priceUsd",
+            "description",
+            "descriptionFa",
+            "attributesFa",
             "stock",
             "Discount",
             "Comments",
@@ -106,14 +114,17 @@ async function main() {
     const data = {
       name: product.name,
       persianName: product.fname ?? null,
-      description: null,
+      description: product.description ?? null,
+      descriptionFa: product.descriptionFa ?? null,
       imageUrl: product.img ?? null,
-      price: BigInt(Math.round(product.Amount)).toString(),
+      priceIrr: BigInt(Math.round(product.Amount)).toString(),
+      priceUsd: product.priceUsd == null ? null : product.priceUsd,
       stock: Math.max(0, Math.trunc(product.stock ?? 0)),
       discountPercent: Math.min(100, Math.max(0, Math.trunc(discountPercent))),
       rating: Math.min(5, Math.max(0, product.rating ?? 0)),
       ratingCount: Math.max(0, Math.trunc(product.Comments ?? 0)),
       attributes,
+      attributesFa: (product.attributesFa ?? {}) as Prisma.InputJsonObject,
       categoryId: product.categoryId,
       isActive: true,
     };
