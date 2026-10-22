@@ -94,7 +94,14 @@
       "stock": 3,
       "Discount": "10%",
       "Comments": 8,
-      "rating": 2
+      "rating": 2,
+      "description": "A Lenovo IdeaPad Slim laptop. Confirm the exact model and processor before publishing detailed specifications.",
+      "descriptionFa": "لپ‌تاپ لنوو از سری آیدیاپد اسلیم. پیش از انتشار مشخصات دقیق، مدل کامل و پردازنده را بررسی کنید.",
+      "attributesFa": {
+        "پردازنده": "i5-8500",
+        "حافظه رم": "8g",
+        "رنگ": "white"
+      }
     },
     {
       "id": 2,
@@ -109,7 +116,14 @@
       "stock": 2,
       "Discount": "10%",
       "Comments": 10,
-      "rating": 3
+      "rating": 3,
+      "description": "An ASUS laptop. The exact model and CPU generation need confirmation to ensure accurate specifications.",
+      "descriptionFa": "لپ‌تاپ ایسوس. برای درج مشخصات دقیق، مدل کامل و نسل پردازنده باید تأیید شود.",
+      "attributesFa": {
+        "پردازنده": "i9-12000",
+        "حافظه رم": "16g",
+        "رنگ": "back"
+      }
     },
     {
       "id": 3,
@@ -124,7 +138,14 @@
       "stock": 5,
       "Discount": "10%",
       "Comments": 50,
-      "rating": 5
+      "rating": 5,
+      "description": "A MacBook listing. Confirm the official model identifier, chip, memory and screen size before publishing specifications.",
+      "descriptionFa": "محصول مک‌بوک. پیش از درج مشخصات، شناسه رسمی مدل، تراشه، حافظه و اندازه نمایشگر را بررسی کنید.",
+      "attributesFa": {
+        "تراشه": "MGE94 2026 LLA-M5",
+        "حافظه یکپارچه": "48g",
+        "رنگ": "white"
+      }
     },
     {
       "id": 4,
@@ -139,7 +160,14 @@
       "stock": 4,
       "Discount": "10%",
       "Comments": 4,
-      "rating": 4
+      "rating": 4,
+      "description": "POCO M6 Pro smartphone listing. Verify whether this is the 4G or another variant and confirm storage configuration.",
+      "descriptionFa": "گوشی پوکو M6 Pro. نسخه دستگاه (برای مثال 4G) و ظرفیت حافظه را پیش از ثبت مشخصات نهایی بررسی کنید.",
+      "attributesFa": {
+        "حافظه رم": "12G",
+        "حافظه داخلی": "512g",
+        "رنگ": "blue"
+      }
     },
     {
       "id": 5,
@@ -154,7 +182,14 @@
       "stock": 6,
       "Discount": "10%",
       "Comments": 60,
-      "rating": 5
+      "rating": 5,
+      "description": "iPhone 17 Pro series listing. Confirm whether the product is iPhone 17 Pro or Pro Max, along with storage and SIM configuration.",
+      "descriptionFa": "محصولی از سری آیفون ۱۷ پرو. مشخص کنید مدل دقیق Pro است یا Pro Max و ظرفیت حافظه و نوع سیم‌کارت را تأیید کنید.",
+      "attributesFa": {
+        "حافظه رم": "8G",
+        "حافظه داخلی": "512-G",
+        "رنگ": "orange"
+      }
     },
     {
       "id": 6,
@@ -169,7 +204,14 @@
       "stock": 2,
       "Discount": "10%",
       "Comments": 2,
-      "rating": 5
+      "rating": 5,
+      "description": "Samsung Galaxy Z Fold series listing. Confirm the exact generation, storage capacity and regional variant.",
+      "descriptionFa": "محصولی از سری سامسونگ گلکسی Z Fold. نسل دقیق، ظرفیت حافظه و نسخه منطقه‌ای دستگاه را تأیید کنید.",
+      "attributesFa": {
+        "حافظه رم": "12G",
+        "حافظه داخلی": "256-G",
+        "رنگ": "blue-black"
+      }
     },
     {
       "id": 7,
@@ -184,7 +226,14 @@
       "stock": 2,
       "Discount": "10%",
       "Comments": 6,
-      "rating": 5
+      "rating": 5,
+      "description": "ASUS ProArt monitor listing. Confirm the exact model number, resolution, refresh rate and panel size.",
+      "descriptionFa": "مانیتور ایسوس ProArt. شماره مدل، وضوح تصویر، نرخ نوسازی و اندازه پنل باید تأیید شوند.",
+      "attributesFa": {
+        "نرخ نوسازی": "herts-240",
+        "تعداد درگاه USB": 3,
+        "رنگ": "black"
+      }
     },
     {
       "id": 10,
@@ -198,7 +247,13 @@
       "stock": 6,
       "Discount": "10%",
       "Comments": 5,
-      "rating": 2
+      "rating": 2,
+      "description": "A gray overcoat in size 2XL. Confirm fabric composition, fit and measurements before publishing.",
+      "descriptionFa": "پالتوی خاکستری در سایز 2XL. جنس پارچه، نوع برش و اندازه‌ها را پیش از انتشار بررسی کنید.",
+      "attributesFa": {
+        "سایز": "2xl",
+        "رنگ": "gray"
+      }
     },
     {
       "id": 15,
@@ -211,7 +266,12 @@
       "stock": 2,
       "Discount": "10%",
       "Comments": 9,
-      "rating": 3
+      "rating": 3,
+      "description": "A black belt. Add material, length and buckle details for a complete product listing.",
+      "descriptionFa": "کمربند مشکی. برای تکمیل اطلاعات محصول، جنس، طول و مشخصات سگک را اضافه کنید.",
+      "attributesFa": {
+        "رنگ": "black"
+      }
     },
     {
       "id": 16,
@@ -225,7 +285,13 @@
       "stock": 1,
       "Discount": "10%",
       "Comments": 2,
-      "rating": 4
+      "rating": 4,
+      "description": "An 8-person camping tent. Confirm dimensions, packed weight, waterproof rating and included accessories.",
+      "descriptionFa": "چادر کمپینگ ۸ نفره. ابعاد، وزن بسته‌بندی، میزان مقاومت در برابر آب و لوازم همراه را بررسی کنید.",
+      "attributesFa": {
+        "ظرفیت": "8-people",
+        "رنگ": "lightBlue"
+      }
     },
     {
       "id": 17,
@@ -239,7 +305,13 @@
       "stock": 1,
       "Discount": "10%",
       "Comments": 1,
-      "rating": 5
+      "rating": 5,
+      "description": "A 12-person camping tent. Confirm dimensions, packed weight, waterproof rating and included accessories.",
+      "descriptionFa": "چادر کمپینگ ۱۲ نفره. ابعاد، وزن بسته‌بندی، میزان مقاومت در برابر آب و لوازم همراه را بررسی کنید.",
+      "attributesFa": {
+        "ظرفیت": "12-people",
+        "رنگ": "black"
+      }
     },
     {
       "id": 18,
@@ -253,7 +325,13 @@
       "stock": 5,
       "Discount": "10%",
       "Comments": 6,
-      "rating": 4
+      "rating": 4,
+      "description": "A camping axe listing. Confirm brand spelling, head material, handle material and total length.",
+      "descriptionFa": "تبر کمپینگ. املای نام برند، جنس تیغه، جنس دسته و طول کلی محصول را تأیید کنید.",
+      "attributesFa": {
+        "برند": "stanly",
+        "رنگ": "white-black"
+      }
     },
     {
       "id": 19,
@@ -267,7 +345,13 @@
       "stock": 6,
       "Discount": "10%",
       "Comments": 0,
-      "rating": 2
+      "rating": 2,
+      "description": "A camping griddle (saj). Confirm dimensions, material, weight and compatibility with the intended heat source.",
+      "descriptionFa": "ساج کمپینگ. ابعاد، جنس، وزن و سازگاری آن با منبع حرارتی موردنظر را بررسی کنید.",
+      "attributesFa": {
+        "برند": "Naturehike",
+        "رنگ": "black"
+      }
     },
     {
       "id": 20,
@@ -281,7 +365,13 @@
       "stock": 3,
       "Discount": "10%",
       "Comments": 6,
-      "rating": 3
+      "rating": 3,
+      "description": "A portable gas stove listing. Confirm fuel-canister compatibility, output rating, ignition type and included accessories.",
+      "descriptionFa": "اجاق گاز قابل‌حمل. نوع کپسول سازگار، توان حرارتی، نوع فندک و لوازم همراه را بررسی کنید.",
+      "attributesFa": {
+        "برند": "Naturehike",
+        "رنگ": "black"
+      }
     }
   ]
 }
