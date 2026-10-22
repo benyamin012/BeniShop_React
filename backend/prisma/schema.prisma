@@ -55,13 +55,16 @@ model Product {
   name            String   @db.VarChar(200)
   persianName     String?  @db.VarChar(200)
   description     String?  @db.Text
+  descriptionFa   String?  @db.Text
   imageUrl        String?  @db.VarChar(1000)
-  price           Decimal  @db.Decimal(14, 0)
+  priceIrr        Decimal  @map("price") @db.Decimal(14, 0)
+  priceUsd        Decimal? @db.Decimal(12, 2)
   stock           Int      @default(0)
   discountPercent Int      @default(0)
   rating          Float    @default(0)
   ratingCount     Int      @default(0)
   attributes      Json     @default("{}")
+  attributesFa    Json     @default("{}")
   categoryId      Int
   isActive        Boolean  @default(true)
   createdAt       DateTime @default(now())
