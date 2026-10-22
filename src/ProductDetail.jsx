@@ -27,7 +27,7 @@ function CartDetails() {
   useEffect(() => {
     async function getProduct() {
       try {
-        const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+        const response = await fetch(`http://localhost:4000/api/products/${id}`);
 
         const data = await response.json();
 
@@ -83,14 +83,21 @@ function CartDetails() {
                   ({product.rating.rate})
                 </span>
               </div>
-              <span className="font-black text-[26px] text-[#0E61F4] max-xl:text-[20px] max-lg:text-[16px] max-md:text-[16px]">
-                ${product.price}
-              </span>
+              <div className="flex flex-col gap-1">
+                <span className="font-black text-[26px] text-[#0E61F4] max-xl:text-[20px] max-lg:text-[16px] max-md:text-[16px]">
+                  {Number(product.priceIrr ?? product.price).toLocaleString("fa-IR")} تومان
+                </span>
+                <span className="text-sm text-gray-500">
+                  {product.priceUsd != null
+                    ? `International: ${Number(product.priceUsd).toLocaleString("en-US")}`
+                    : "قیمت بین‌المللی هنوز تعیین نشده است"}
+                </span>
+              </div>
               <div className="border-t border-t-gray py-5 mt-5 flex flex-col gap-1.5">
                 <span className="font-medium text-[20px] py-2 max-xl:text-[18px] max-sm:text-[16px] ">
                   Description :{" "}
                   <span className=" block font-normal text-[16px]  max-xl:line-clamp-1 max-xl:w-78 max-lg:text-[14px] max-sm:text-[10px]  text-justify  max-sm:w-45 max-md:w-60  ">
-                    {product.description}
+                    {product.descriptionFa || product.description || "توضیحی برای این محصول ثبت نشده است."}
                   </span>
                 </span>
                 {/* <p className="line-clamp-2 max-xl:line-clamp-1 max-xl:w-78 max-lg:text-[14px] max-sm:text-[10px] max-sm:w-45 max-md:w-60 "></p> */}
