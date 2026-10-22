@@ -19,17 +19,21 @@ function serializeProduct(product: {
   name: string;
   persianName: string | null;
   description: string | null;
+  descriptionFa: string | null;
   imageUrl: string | null;
-  price: Prisma.Decimal;
+  priceIrr: Prisma.Decimal;
+  priceUsd: Prisma.Decimal | null;
   stock: number;
   discountPercent: number;
   rating: number;
   ratingCount: number;
   attributes: Prisma.JsonValue;
+  attributesFa: Prisma.JsonValue;
   categoryId: number;
   category: { id: number; name: string; persianName: string | null; slug: string };
 }) {
-  const price = Number(product.price);
+  const price = Number(product.priceIrr);
+  const priceUsd = product.priceUsd == null ? null : Number(product.priceUsd);
   const attributes =
     product.attributes &&
     typeof product.attributes === "object" &&
@@ -42,8 +46,11 @@ function serializeProduct(product: {
     // Compatibility fields: existing React components expect Fake Store API's shape.
     title: product.name,
     price,
+    priceIrr: price,
+    priceUsd,
     image: product.imageUrl ?? "",
     description: product.description ?? "",
+    descriptionFa: product.descriptionFa ?? "",
     category: product.category.name,
     rating: {
       rate: product.rating,
@@ -54,6 +61,8 @@ function serializeProduct(product: {
     fname: product.persianName,
     img: product.imageUrl,
     Amount: price,
+    PriceUSD: priceUsd,
+    attributesFa: product.attributesFa,
     stock: product.stock,
     Discount: product.discountPercent ? `${product.discountPercent}%` : "0%",
     Comments: product.ratingCount,
@@ -112,9 +121,9 @@ router.get("/", async (req, res) => {
 
   const orderBy: Prisma.ProductOrderByWithRelationInput =
     sort === "price-asc"
-      ? { price: "asc" }
+      ? { priceIrr: "asc" }
       : sort === "price-desc"
-        ? { price: "desc" }
+        ? { priceIrr: "desc" }
         : sort === "rating"
           ? { rating: "desc" }
           : { createdAt: "desc" };
