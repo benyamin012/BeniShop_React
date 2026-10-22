@@ -36,7 +36,7 @@ function App(props) {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
-      const response = await fetch("https://fakestoreapi.com/products");
+      const response = await fetch("http://localhost:4000/api/products");
 
       if (!response.ok) {
         throw new Error("Failed to fetch products");
