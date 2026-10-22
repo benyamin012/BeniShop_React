@@ -168,6 +168,8 @@ const useAppStore = create((set) => ({
       cart: state.cart.filter((item) => item.id !== id),
     }));
   },
+
+  clearCart: () => set({ cart: [] }),
 }));
 
 export default useAppStore;
