@@ -5,6 +5,7 @@ import helmet from "helmet";
 import { env } from "./config/env.js";
 import { errorHandler, notFoundHandler } from "./middlewares/errorHandler.js";
 import authRouter from "./routes/auth.js";
+import ordersRouter from "./routes/orders.js";
 import productsRouter from "./routes/products.js";
 
 const app = express();
@@ -29,6 +30,7 @@ app.get("/api/health", (_req, res) => {
 
 app.use("/api/auth", authRouter);
 app.use("/api/products", productsRouter);
+app.use("/api/orders", ordersRouter);
 
 app.use(notFoundHandler);
 app.use(errorHandler);
