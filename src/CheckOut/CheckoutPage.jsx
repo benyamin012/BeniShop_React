@@ -3,7 +3,7 @@ import OrderSummery from "./OrderSummery.jsx";
 
 function CheckOut() {
   return (
-    <main className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
+    <main className="container mx-auto w-full px-4 py-6 sm:px-9 sm:py-8 lg:px-8">
       <h1 className="mb-6 text-2xl font-bold sm:mb-8 sm:text-3xl">
         Checkout Page
       </h1>

@@ -62,6 +62,9 @@ function HamberMenu({ isOpen, categories = [], products = [], onClose }) {
             const categoryProducts = products.filter(
               (product) => product.category === category,
             );
+            categoryProducts.map((product1) => {
+              console.log(product1);
+            });
 
             return (
               <div
@@ -71,7 +74,9 @@ function HamberMenu({ isOpen, categories = [], products = [], onClose }) {
                 <button
                   type="button"
                   aria-expanded={isCategoryOpen}
-                  onClick={() => handleCategoryClick(category)}
+                  onClick={() => {
+                    handleCategoryClick(category);
+                  }}
                   className="flex w-full items-center justify-between gap-3 rounded-lg px-4 py-3 text-left text-sm font-medium capitalize text-gray-700 hover:bg-blue-50 hover:text-blue-600"
                 >
                   <span className="min-w-0 wrap-break-words">{category}</span>
@@ -103,7 +108,7 @@ function HamberMenu({ isOpen, categories = [], products = [], onClose }) {
                           </p>
 
                           <p className="mt-1 text-sm font-semibold text-blue-600">
-                            ${Number(product.price).toFixed(2)}
+                            ${Number(product.PriceUSD)}
                           </p>
                         </div>
                       </div>

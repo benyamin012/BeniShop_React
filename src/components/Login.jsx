@@ -54,7 +54,7 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-slate-950 via-blue-950 to-slate-900 flex items-center justify-center px-4 py-10">
+    <div className="min-h-screen bg-linear-to-br from-slate-950 via-blue-950 to-slate-900 flex items-center justify-center px-4 ">
       <form
         onSubmit={handleSubmit(formhandle)}
         className="w-full max-w-md bg-white rounded-3xl shadow-2xl p-8 sm:p-10"

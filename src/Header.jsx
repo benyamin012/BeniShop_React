@@ -231,7 +231,7 @@ function Header() {
               type="button"
               aria-expanded={userModalOpen}
               onClick={handleUserClick}
-              className="mr-5 inline-flex cursor-pointer items-center gap-1 text-[18px] font-medium uppercase text-[#2563EB] transition-colors duration-300 hover:text-[#114EF7] sm:mr-15"
+              className="mr-5 inline-flex cursor-pointer items-center gap-1 text-[18px] font-medium capitalize text-[#2563EB] transition-colors duration-300 hover:text-[#114EF7] sm:mr-15"
             >
               {user.username}
               <MdArrowDropDown />
@@ -257,16 +257,16 @@ function Header() {
             <div className="absolute right-0 top-full z-10000 mt-2 flex h-auto w-36 flex-col items-center rounded-b-md border-t-2 border-blue-600 bg-white text-center shadow-lg">
               <ul className="w-full">
                 <li className="w-full p-2.5 text-[16px] font-normal transition-colors hover:bg-blue-100 hover:text-[#4343ff]">
-                  داشبورد
+                  Dashboard
                 </li>
 
                 <li className="w-full p-2.5 text-[16px] font-normal transition-colors hover:bg-blue-100 hover:text-[#4343ff]">
                   <Link
-                    to="/"
+                    to="/checkOut"
                     className="block w-full"
                     onClick={() => setUserModalOpen(false)}
                   >
-                    سبد خرید
+                    Shopping Cart
                   </Link>
                 </li>
 
@@ -276,7 +276,7 @@ function Header() {
                     className="w-full"
                     onClick={handleLogout}
                   >
-                    خروج
+                    Log out
                   </button>
                 </li>
               </ul>

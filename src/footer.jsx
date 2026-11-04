@@ -102,17 +102,17 @@ function FooterPart() {
           />
         </div>
         <div className="flex gap-2.5 items-center text-center">
-          <div className="w-10 h-10 max-lg:w-7 max-lg:h-7 flex items-center text-center  justify-center rounded-[50%] shadow-[0_2px_5px_rgba(0,0,0,0.20)] bg-[#ffffff] ">
-            <GrFacebookOption size={30} className="p-1" color="gray" />
+          <div className="w-10 h-10 max-lg:w-7 max-lg:h-7 flex items-center text-center  justify-center hover:bg-blue-400 duration-300  rounded-[50%] shadow-[0_2px_5px_rgba(0,0,0,0.20)] bg-[#adadad] ">
+            <GrFacebookOption size={30} className="p-1  " color="#ffff " />
           </div>
-          <div className="w-10 h-10 max-lg:w-7 max-lg:h-7 flex items-center text-center  justify-center  rounded-[50%] shadow-[0_2px_5px_rgba(0,0,0,0.20)] bg-[#ffffff] ">
-            <FaTwitter size={30} className="p-1" color="gray" />
+          <div className="w-10 h-10 max-lg:w-7 max-lg:h-7 flex items-center text-center  justify-center hover:bg-blue-400 duration-300 rounded-[50%] shadow-[0_2px_5px_rgba(0,0,0,0.20)] bg-[#adadad] ">
+            <FaTwitter size={30} className="p-1" color="#ffff" />
           </div>
-          <div className="w-10 h-10 max-lg:w-7 max-lg:h-7 flex items-center text-center  justify-center rounded-[50%] shadow-[0_2px_5px_rgba(0,0,0,0.20)] bg-[#ffffff] ">
-            <GrInstagram size={30} className="p-1" color="gray" />
+          <div className="w-10 h-10 max-lg:w-7 max-lg:h-7 flex items-center text-center  justify-center rounded-[50%] hover:bg-orange-500 duration-300 shadow-[0_2px_5px_rgba(0,0,0,0.20)] bg-[#adadad] ">
+            <GrInstagram size={30} className="p-1" color="#ffff" />
           </div>
-          <div className="w-10 h-10 max-lg:w-7 max-lg:h-7 flex items-center text-center  justify-center rounded-[50%] shadow-[0_2px_5px_rgba(0,0,0,0.20)] bg-[#ffffff] ">
-            <FaLinkedinIn size={30} className="p-1" color="gray" />
+          <div className="w-10 h-10 max-lg:w-7 max-lg:h-7 flex items-center text-center  justify-center rounded-[50%] hover:bg-blue-400 duration-300 shadow-[0_2px_5px_rgba(0,0,0,0.20)] bg-[#adadad] ">
+            <FaLinkedinIn size={30} className="p-1" color="#ffff" />
           </div>
         </div>
       </div>

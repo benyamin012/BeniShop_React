@@ -11,7 +11,9 @@ import NotFound from "./NotFoundPage.jsx";
 import Login from "./components/Login.jsx";
 import Signup from "./components/signup.jsx";
 import CheckOut from "./CheckOut/CheckoutPage.jsx";
+import Dashboard from "./Dashboard/Dashboard.jsx";
 import useAppStore from "./store/useZustand.js";
+import StoreLayout from "./layouts/StoreLayout.jsx";
 
 const queryClient = new QueryClient();
 
@@ -27,22 +29,27 @@ function SessionInitializer() {
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
+      <Routes>
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
       <SessionInitializer />
-      <Header />
+      {/* <Header /> */}
       <QueryClientProvider client={queryClient}>
-        <div className="pt-20 max-lg:pt-13  max-sm:pt-15">
+        <div className=" max-lg:pt-13  max-sm:pt-15">
           <Routes>
+            <Route element={<StoreLayout />} className="pt-20">
+              <Route path="/product/:id" element={<CartDeatils />} />
+              <Route path="/checkOut" element={<CheckOut />} />
+              <Route path="/" exact element={<App />} />
+              <Route path="/not-found" element={<NotFound />} />
+              <Route path="*" element={<Navigate to="/not-found" />} />
+            </Route>
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/product/:id" element={<CartDeatils />} />
-            <Route path="/checkOut" element={<CheckOut />} />
-            <Route path="/" exact element={<App />} />
-            <Route path="/not-found" element={<NotFound />} />
-            <Route path="*" element={<Navigate to="/not-found" />} />
           </Routes>
         </div>
       </QueryClientProvider>
-      <FooterPart />
+      {/* <FooterPart /> */}
     </BrowserRouter>
   </React.StrictMode>,
 );
