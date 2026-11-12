@@ -256,8 +256,17 @@ function Header() {
           {user && userModalOpen && (
             <div className="absolute right-0 top-full z-10000 mt-2 flex h-auto w-36 flex-col items-center rounded-b-md border-t-2 border-blue-600 bg-white text-center shadow-lg">
               <ul className="w-full">
-                <li className="w-full p-2.5 text-[16px] font-normal transition-colors hover:bg-blue-100 hover:text-[#4343ff]">
-                  Dashboard
+                <li className="w-full cursor-pointer p-2.5 text-[16px] font-normal transition-colors hover:bg-blue-100 hover:text-[#4343ff]">
+                  <button
+                    onClick={() =>
+                      window.open(
+                        `http://localhost:5173/?username=${encodeURIComponent(user.username)}`,
+                        "_blank",
+                      )
+                    }
+                  >
+                    Dashboard
+                  </button>
                 </li>
 
                 <li className="w-full p-2.5 text-[16px] font-normal transition-colors hover:bg-blue-100 hover:text-[#4343ff]">
@@ -270,7 +279,7 @@ function Header() {
                   </Link>
                 </li>
 
-                <li className="w-full p-2.5 text-[16px] font-normal transition-colors hover:bg-blue-100 hover:text-[#4343ff]">
+                <li className="w-full cursor-pointer p-2.5 text-[16px] font-normal transition-colors hover:bg-blue-100 hover:text-[#4343ff]">
                   <button
                     type="button"
                     className="w-full"

@@ -62,9 +62,6 @@ function HamberMenu({ isOpen, categories = [], products = [], onClose }) {
             const categoryProducts = products.filter(
               (product) => product.category === category,
             );
-            categoryProducts.map((product1) => {
-              console.log(product1);
-            });
 
             return (
               <div
