@@ -41,9 +41,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               <Route path="/product/:id" element={<CartDeatils />} />
               <Route path="/checkOut" element={<CheckOut />} />
               <Route path="/" exact element={<App />} />
-              <Route path="/not-found" element={<NotFound />} />
               <Route path="*" element={<Navigate to="/not-found" />} />
             </Route>
+            <Route path="/not-found" element={<NotFound />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
           </Routes>
